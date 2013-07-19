@@ -146,5 +146,9 @@ endif
 " for java
 autocmd FileType java set expandtab|set tabstop=2|set softtabstop=2|set shiftwidth=2
 
+" for us keyboard
+noremap ; :
+noremap : ;
+
 NeoBundleCheck
 
