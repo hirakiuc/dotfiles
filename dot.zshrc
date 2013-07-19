@@ -29,7 +29,6 @@ alias ls="ls -FG"
 alias vim="/usr/local/bin/vim"
 alias rakobjc="rak --type=objc"
 alias zsh="/usr/local/bin/zsh"
-alias mosh:sakura="mosh --ssh=\"ssh -p 30 -i ~/.ssh/id_rsa\" hirakiuc@49.212.131.202"
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
 export JLESSCHARSET=japanese-utf8
