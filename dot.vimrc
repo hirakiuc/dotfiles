@@ -22,6 +22,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'basyura/unite-rails'
 NeoBundle 'msanders/cocoa.vim'
 NeoBundle 'Markdown'
 NeoBundle 'tpope/vim-endwise.git'
@@ -30,15 +31,12 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 
-NeoBundle 'rdolgushin/play.vim'
-NeoBundle 'derekwyatt/vim-scala'
-
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'kana/vim-submode'
 NeoBundle 'scrooloose/syntastic'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
-
 
 " load ~/.vim/rcs/*.vimrc
 set runtimepath+=~/.vim/
