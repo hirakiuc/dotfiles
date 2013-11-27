@@ -33,7 +33,11 @@ NeoBundle 'groenewege/vim-less'
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-submode'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic', {
+  \ 'build': {
+  \   'mac' :['npm -g install coffeelint'],
+  \   'unix':['npm -g install coffeelint']
+  \ }}
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
@@ -63,12 +67,6 @@ endif
 " for us keyboard
 " noremap ; :
 " noremap : ;
-
-" http://qiita.com/yuku_t/items/0ac33cea18e10f14e185
-" syntastic for ruby
-"let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby'] }
-"let g:syntastic_ruby_checkers = ['rubocop']
-"let g:syntastic_quiet_warnings = 0
 
 NeoBundleCheck
 
