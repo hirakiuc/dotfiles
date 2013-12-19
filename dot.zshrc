@@ -8,6 +8,14 @@ else
   PROMPT="[%n@%m]$ "
 fi
 
+export PATH=$HOME/.rbenv/shims:$PATH
+export PATH=/usr/local/bin:$PATH:$HOME/.bin
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fpath=($HOME/.zsh/functions $fpath)
+
 autoload -U compinit
 compinit
 
@@ -19,22 +27,15 @@ autoload colors
 colors
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-export PATH=/opt/local/bin/:/opt/local/sbin/:$PATH:$HOME/.bin
-export MANPATH=/opt/local/man:$MANPATH
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
 alias ls="ls -FG"
 alias vim="/usr/local/bin/vim"
 alias rakobjc="rak --type=objc"
 alias zsh="/usr/local/bin/zsh"
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
-export JLESSCHARSET=japanese-utf8
-
-alias irb="pry"
+alias be="bundle exec"
 alias memcached="/usr/local/opt/memcached/bin/memcached"
+
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export JLESSCHARSET=japanese-utf8
 
 source $HOME/.zsh/git-branch.zsh
 
@@ -46,3 +47,7 @@ then
   source $HOME/.rvm/scripts/rvm
 fi
 
+if [ -f $HOME/.zshrc.antigen ]
+then
+  source $HOME/.zshrc.antigen
+fi
