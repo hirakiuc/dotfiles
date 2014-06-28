@@ -18,29 +18,30 @@ NeoBundle 'Shougo/vimproc', {
 " plugin
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'Markdown'
+NeoBundle 'Keithbsmiley/rspec.vim'
+"NeoBundle 'msanders/cocoa.vim'
+"NeoBundle 'Markdown'
 NeoBundle 'tpope/vim-endwise.git'
+"NeoBundle 'juvenn/mustache.vim'
 
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
 
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'kana/vim-submode'
-NeoBundle 'scrooloose/syntastic', {
-  \ 'build': {
-  \   'mac' :['npm -g install coffeelint'],
-  \   'unix':['npm -g install coffeelint']
-  \ }}
+NeoBundle 'scrooloose/syntastic'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
+
 
 " load ~/.vim/rcs/*.vimrc
 set runtimepath+=~/.vim/
@@ -53,6 +54,7 @@ filetype plugin on
 
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec  set filetype=ruby
+au BufNewFile,BufRead *.cap set ft=ruby
 
 " encoding
 execute "source " . '~/.vim/auto-encoding.vim'
@@ -65,8 +67,14 @@ if has('mac')
 endif
 
 " for us keyboard
-" noremap ; :
-" noremap : ;
+noremap ; :
+noremap : ;
+
+" http://qiita.com/yuku_t/items/0ac33cea18e10f14e185
+" syntastic for ruby
+"let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby'] }
+"let g:syntastic_ruby_checkers = ['rubocop']
+"let g:syntastic_quiet_warnings = 0
 
 NeoBundleCheck
 
