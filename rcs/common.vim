@@ -1,8 +1,3 @@
-
-filetype plugin indent on
-
-colorscheme jellybeans
-
 " customize common setting
 set number
 set cmdheight=2
@@ -21,4 +16,9 @@ set tags+=./tags;
 " highligh cursor line
 set cursorline
 
-
+set nocompatible
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
