@@ -18,6 +18,8 @@ NeoBundle 'Shougo/vimproc', {
 " plugin
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
@@ -26,6 +28,7 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'msanders/cocoa.vim'
 NeoBundle 'Markdown'
 NeoBundle 'tpope/vim-endwise.git'
+NeoBundle 'rking/ag.vim'
 
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -33,6 +36,7 @@ NeoBundle 'groenewege/vim-less'
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-submode'
+" NeoBundle 'tpope/vim-pathogen'
 NeoBundle 'scrooloose/syntastic', {
   \ 'build': {
   \   'mac' :['npm -g install coffeelint'],
@@ -42,20 +46,42 @@ NeoBundle 'scrooloose/syntastic', {
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
 
-" load ~/.vim/rcs/*.vimrc
+" config for pathogen
+execute pathogen#infect()
+
+filetype plugin indent on
+
+colorscheme jellybeans
+
+" vim-endwise
+
+" load rcs
 set runtimepath+=~/.vim/
-runtime! rcs/*.vimrc
+runtime! rcs/*.vim
 
 """ enable filetype plugin
 filetype on
 filetype indent on
 filetype plugin on
 
+"" vim-ruby
+set nocompatible
+
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec  set filetype=ruby
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" cap, Gemfile
+au BufNewFile,BufRead *.cap set filetype=ruby
 
 " encoding
-execute "source " . '~/.vim/auto-encoding.vim'
+"execute "source " . '~/.vim/auto-encoding.vim'
 execute "source " . '~/.vim/highlight-trailing-spaces.vim'
 
 " http://kazukiq.ldblog.jp/archives/51843772.html
@@ -65,8 +91,8 @@ if has('mac')
 endif
 
 " for us keyboard
-" noremap ; :
-" noremap : ;
+noremap ; :
+noremap : ;
 
 NeoBundleCheck
 
