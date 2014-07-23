@@ -34,6 +34,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
+NeoBundleLazy 'Blackrush/vim-gocode', { 'autoload': {'filetypes': ['go']} }
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-submode'
