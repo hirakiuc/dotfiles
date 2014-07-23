@@ -19,17 +19,18 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'Markdown'
+NeoBundle 'Keithbsmiley/rspec.vim'
+"NeoBundle 'msanders/cocoa.vim'
+"NeoBundle 'Markdown'
 NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'rking/ag.vim'
-
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
@@ -55,7 +56,7 @@ colorscheme jellybeans
 
 " vim-endwise
 
-" load rcs
+" load ~/.vim/rcs/*.vim
 set runtimepath+=~/.vim/
 runtime! rcs/*.vim
 
@@ -78,7 +79,7 @@ au BufNewFile,BufRead Podfile,*.podspec  set filetype=ruby
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
 " cap, Gemfile
-au BufNewFile,BufRead *.cap set filetype=ruby
+au BufNewFile,BufRead *.cap set ft=ruby
 
 " encoding
 "execute "source " . '~/.vim/auto-encoding.vim'
@@ -95,4 +96,3 @@ noremap ; :
 noremap : ;
 
 NeoBundleCheck
-
