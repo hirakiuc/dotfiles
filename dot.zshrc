@@ -47,7 +47,7 @@ then
   source $HOME/.rvm/scripts/rvm
 fi
 
-if [ -f $HOME/.zshrc.antigen ]
+if [ -f $HOME/.zsh/antigen.zsh ]
 then
-  source $HOME/.zshrc.antigen
+  source $HOME/.zsh/antigen.zsh
 fi
