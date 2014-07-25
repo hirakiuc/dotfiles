@@ -1,4 +1,5 @@
-""" neocomplcache plugin
+""" neocomplete plugin
+
 " disable AutoComplPop
 let g:acp_enableAtStartup = 0
 " use neocomplcache

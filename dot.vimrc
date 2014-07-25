@@ -30,34 +30,60 @@ NeoBundle 'Keithbsmiley/rspec.vim'
 "NeoBundle 'msanders/cocoa.vim'
 "NeoBundle 'Markdown'
 NeoBundle 'tpope/vim-endwise.git'
-"NeoBundle 'juvenn/mustache.vim'
-
+NeoBundle 'rking/ag.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
+NeoBundleLazy 'Blackrush/vim-gocode', { 'autoload': {'filetypes': ['go']} }
 
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kana/vim-submode'
+" NeoBundle 'tpope/vim-pathogen'
+NeoBundle 'scrooloose/syntastic', {
+  \ 'build': {
+  \   'mac' :['npm -g install coffeelint'],
+  \   'unix':['npm -g install coffeelint']
+  \ }}
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
 
+" config for pathogen
+execute pathogen#infect()
 
-" load ~/.vim/rcs/*.vimrc
+filetype plugin indent on
+
+colorscheme jellybeans
+
+" vim-endwise
+
+" load ~/.vim/rcs/*.vim
 set runtimepath+=~/.vim/
-runtime! rcs/*.vimrc
+runtime! rcs/*.vim
 
 """ enable filetype plugin
 filetype on
 filetype indent on
 filetype plugin on
 
+"" vim-ruby
+set nocompatible
+
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec  set filetype=ruby
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+" cap, Gemfile
 au BufNewFile,BufRead *.cap set ft=ruby
 
 " encoding
-execute "source " . '~/.vim/auto-encoding.vim'
+"execute "source " . '~/.vim/auto-encoding.vim'
 execute "source " . '~/.vim/highlight-trailing-spaces.vim'
 
 " http://kazukiq.ldblog.jp/archives/51843772.html
@@ -70,11 +96,4 @@ endif
 noremap ; :
 noremap : ;
 
-" http://qiita.com/yuku_t/items/0ac33cea18e10f14e185
-" syntastic for ruby
-"let g:syntastic_mode_map = { 'mode' : 'passive', 'active_filetypes' : ['ruby'] }
-"let g:syntastic_ruby_checkers = ['rubocop']
-"let g:syntastic_quiet_warnings = 0
-
 NeoBundleCheck
-
