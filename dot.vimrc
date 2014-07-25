@@ -2,9 +2,10 @@
 set nocompatible
 
 if has('vim_starting')
+  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -38,7 +39,6 @@ NeoBundleLazy 'Blackrush/vim-gocode', { 'autoload': {'filetypes': ['go']} }
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-submode'
-" NeoBundle 'tpope/vim-pathogen'
 NeoBundle 'scrooloose/syntastic', {
   \ 'build': {
   \   'mac' :['npm -g install coffeelint'],
@@ -48,8 +48,7 @@ NeoBundle 'scrooloose/syntastic', {
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
 
-" config for pathogen
-execute pathogen#infect()
+call neobundle#end()
 
 filetype plugin indent on
 
