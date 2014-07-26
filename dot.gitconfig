@@ -1,0 +1,30 @@
+[user]
+	name = hirakiuc
+	email = hirakiuc@gmail.com
+[color]
+	ui = true
+[tig "bind"]
+  generic = g move-first-line
+  generic = G move-last-line
+
+[core]
+	editor = /usr/local/bin/vim
+[merge]
+	ff = false
+[alias]
+  ad = add
+  co = checkout
+  ci = commit
+  st = status
+  sh = stash
+  br = branch
+  brl = "!git branch | grep -v 'archive/*'"
+[push]
+	default = simple
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[pager]
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
