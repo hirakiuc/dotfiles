@@ -10,7 +10,7 @@ fi
 
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-fpath=($HOME/.zsh/functions $fpath)
+fpath=($HOME/.zsh/completions $fpath)
 
 autoload -U compinit
 compinit
@@ -33,7 +33,7 @@ alias memcached="/usr/local/opt/memcached/bin/memcached"
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
 
-source $HOME/.zsh/git-branch.zsh
+source $HOME/.zsh/functions/*.zsh
 
 bindkey "^P" up-line-or-history
 bindkey "^N" down-line-or-history
