@@ -33,7 +33,10 @@ alias memcached="/usr/local/opt/memcached/bin/memcached"
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
 
-source $HOME/.zsh/functions/*.zsh
+for file in `ls $HOME/.zsh/functions/*.zsh`
+do
+  source $file
+done
 
 bindkey "^P" up-line-or-history
 bindkey "^N" down-line-or-history
