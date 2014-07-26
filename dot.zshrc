@@ -12,6 +12,8 @@ export PATH=$HOME/.rbenv/shims:$PATH
 export PATH=/usr/local/bin:$PATH:$HOME/.bin
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
+export GOPATH=$HOME/.golang
+
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=($HOME/.zsh/functions $fpath)
