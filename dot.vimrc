@@ -25,13 +25,13 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundleLazy 'basyura/unite-rails'
 NeoBundleLazy 'tpope/vim-fugitive'
-NeoBundleLazy 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rails'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundleLazy 'Keithbsmiley/rspec.vim'
+NeoBundle 'Keithbsmiley/rspec.vim'
 "NeoBundle 'msanders/cocoa.vim'
 "NeoBundle 'Markdown'
 NeoBundle 'tpope/vim-endwise.git'
-NeoBundleLazy 'rking/ag.vim'
+NeoBundle 'rking/ag.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
@@ -39,7 +39,7 @@ NeoBundleLazy 'Blackrush/vim-gocode', { 'autoload': {'filetypes': ['go']} }
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundleLazy 'kana/vim-submode'
-NeoBundleLazy 'scrooloose/syntastic', {
+NeoBundle 'scrooloose/syntastic', {
   \ 'build': {
   \   'mac' :['npm -g install coffeelint'],
   \   'unix':['npm -g install coffeelint']
