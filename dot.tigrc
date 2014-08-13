@@ -1,8 +1,22 @@
 # vim: set expandtab sw=4 tabstop=4:
 # *color* 'area' 'fgcolor' 'bgcolor' '[attributes]'
 
-# https://github.com/cbertoldi/dotfiles/blob/master/tigrc.symlink
+## view
+set main-view = id:width=8 date author commit-title:graph=yes,refs=yes
 
+set diff-context = 6
+
+## key bindings
+# http://qiita.com/yoshikazusawa/items/3eaa6db78fa348d38bfe
+bind generic G none
+bind generic g move-first-line
+bind generic G move-last-line
+
+bind generic <Ctrl-f> scroll-page-down
+bind generic <Ctrl-b> scroll-page-up
+
+## color scheme
+# https://github.com/cbertoldi/dotfiles/blob/master/tigrc.symlink
 # general
 color   default                 15      235
 color   cursor                  15      241
