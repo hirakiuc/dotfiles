@@ -32,12 +32,14 @@ alias memcached="/usr/local/opt/memcached/bin/memcached"
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
+export EDITOR=/usr/local/bin/vim
 
 for file in `ls $HOME/.zsh/functions/*.zsh`
 do
   source $file
 done
 
+bindkey -e
 bindkey "^P" up-line-or-history
 bindkey "^N" down-line-or-history
 
@@ -50,3 +52,6 @@ if [ -f $HOME/.zsh/antigen.zsh ]
 then
   source $HOME/.zsh/antigen.zsh
 fi
+
+# added by travis gem
+[ -f /Users/hirakiuc/.travis/travis.sh ] && source /Users/hirakiuc/.travis/travis.sh
