@@ -5,3 +5,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 export GOPATH=$HOME/.golang
 export PATH=$PATH:$GOPATH/bin
+
+# for nvm (https://github.com/creationix/nvm)
+[[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+
