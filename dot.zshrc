@@ -34,6 +34,8 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
 export EDITOR=/usr/local/bin/vim
 
+eval "$(direnv hook zsh)"
+
 for file in `ls $HOME/.zsh/functions/*.zsh`
 do
   source $file
