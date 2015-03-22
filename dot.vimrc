@@ -39,6 +39,7 @@ else
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'kana/vim-submode'
   NeoBundle 'scrooloose/syntastic'
+  NeoBundle 'fatih/vim-go'
 
   " colorscheme
   NeoBundle 'nanotech/jellybeans.vim'
