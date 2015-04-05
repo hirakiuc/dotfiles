@@ -35,15 +35,16 @@ function! s:unite_my_settings()
   imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 endfunction
 
-"" unite-grep
-" use ag command as unite-grep backend
-" http://qiita.com/items/c8962f9325a5433dc50d
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_grep_max_candidates = 200
+" grep search
+nnoremap <silent> ,g :<C-u>Unite grep: -buffer-name=search-buffer<CR>
+" grep search by the word under cursor
+nnoremap <silent> ,cg :<C-u>Unite grep: -buffer-name=search-buffer<CR><C-R><C-W>
+" recursive search
+nnoremap <silent> ,r :<C-u>UniteResume search-buffer<CR>
 
-" keymap for unite-grep
-" search selected string by unite-grep
-" https://github.com/shingokatsushima/dotfiles/blob/master/.vimrc
-vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_max_candidates = 200
+endif
