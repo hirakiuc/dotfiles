@@ -22,5 +22,9 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/snippets'
+let g:neosnippet#snippets_directory= [
+      \'~/.vim/snippets',
+      \'~/.vim/bundle/vim-snippets/snippets',
+      \'~/.vim/bundle/serverspec-snippets'
+      \]
 
