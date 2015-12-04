@@ -14,30 +14,91 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " plugin
+NeoBundleLazy 'Shougo/unite.vim', {
+      \ 'autoload' : { 'commands' : [ 'Unite' ] }
+      \}
+
+NeoBundleLazy 'Shougo/vimfiler.vim', {
+      \ 'depends':["Shougo/unite.vim"],
+      \ 'autoload':{
+      \   'commands': ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
+      \ }
+      \}
+
+NeoBundleLazy 'basyura/unite-rails', {
+      \ 'depends':["Shougo/unite.vim"],
+      \   'commands':["Unite"]
+      \}
+
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'glidenote/serverspec-snippets'
-NeoBundle 'Shougo/vimfiler.vim'
+NeoBundleLazy 'glidenote/serverspec-snippets', {
+      \ 'autoload': {
+      \   'filetypes' : ['rb','serverspec']
+      \ }
+      \}
 NeoBundle 'honza/vim-snippets'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'basyura/unite-rails'
+
+
+NeoBundle 'ctrlpvim/ctrlp.vim'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Keithbsmiley/rspec.vim'
-"NeoBundle 'msanders/cocoa.vim'
-NeoBundle 'Markdown'
+
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+      \ 'autoload' : {
+      \   'filetypes' : ['rb','rake']
+      \ }
+      \}
+NeoBundleLazy 'Keithbsmiley/rspec.vim', {
+      \ 'autoload': {
+      \   'filetypes' : ['rb']
+      \ }
+      \}
+
+" languages
+NeoBundleLazy 'slim-template/vim-slim', {
+      \ 'autoload': { 'filetypes' : ['slim'] }
+      \}
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+      \ 'autoload': { 'filetypes' : ['coffee'] }
+      \}
+NeoBundleLazy 'groenewege/vim-less', {
+      \ 'autoload': { 'filetypes' : ['less'] }
+      \}
+NeoBundleLazy 'mattn/emmet-vim', {
+      \ 'autoload': { 'filetypes' : ['html','css'] }
+      \}
+NeoBundleLazy 'pangloss/vim-javascript', {
+      \ 'autoload' : { 'filetypes' : ['js', 'jsx'] }
+      \}
+NeoBundleLazy 'mxw/vim-jsx', {
+      \ 'autoload' : { 'filetypes' : ['js', 'jsx'] }
+      \}
+NeoBundleLazy 'fatih/vim-go', {
+      \ 'autoload' : { 'filetypes' : ['go'] }
+      \}
+NeoBundleLazy 'elixir-lang/vim-elixir', {
+      \ 'autoload' : { 'filetypes' : ['exs'] }
+      \}
+if has("mac")
+  NeoBundleLazy 'toyamarinyon/vim-swift', {
+        \ 'autoload' : { 'filetypes' : ['swift'] }
+        \}
+endif
+
+
+NeoBundleLazy 'scrooloose/syntastic', {
+      \ 'autoload' : { 'filetypes' : ['rb', 'coffee'] }
+      \}
+
+" Utility
 NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'groenewege/vim-less'
-
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-submode'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'fatih/vim-go'
+NeoBundle 'wakatime/vim-wakatime'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
