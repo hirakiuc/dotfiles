@@ -1,5 +1,7 @@
 if has('vim_starting')
-  set nocompatible
+  if &compatible
+    set nocompatible  " Be iMproved
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
@@ -39,7 +41,6 @@ NeoBundleLazy 'glidenote/serverspec-snippets', {
       \ }
       \}
 NeoBundle 'honza/vim-snippets'
-
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
 
@@ -87,7 +88,6 @@ if has("mac")
         \ 'autoload' : { 'filetypes' : ['swift'] }
         \}
 endif
-
 
 NeoBundleLazy 'scrooloose/syntastic', {
       \ 'autoload' : { 'filetypes' : ['rb', 'coffee'] }
