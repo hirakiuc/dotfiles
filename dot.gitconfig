@@ -19,6 +19,7 @@
   sh = stash
   br = branch
   brl = "!git branch | grep -v 'archive/*'"
+  pullff = "pull --ff"
 [push]
 	default = simple
 [filter "media"]
