@@ -37,7 +37,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundleLazy 'glidenote/serverspec-snippets', {
       \ 'autoload': {
-      \   'filetypes' : ['rb','serverspec']
+      \   'filetypes' : ['ruby','serverspec']
       \ }
       \}
 NeoBundle 'honza/vim-snippets'
@@ -49,12 +49,12 @@ NeoBundle 'tpope/vim-rails'
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
       \ 'autoload' : {
-      \   'filetypes' : ['rb','rake']
+      \   'filetypes' : ['ruby','rake']
       \ }
       \}
-NeoBundleLazy 'Keithbsmiley/rspec.vim', {
+NeoBundleLazy 'keith/rspec.vim', {
       \ 'autoload': {
-      \   'filetypes' : ['rb']
+      \   'filetypes' : ['ruby']
       \ }
       \}
 
@@ -67,6 +67,9 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
       \}
 NeoBundleLazy 'groenewege/vim-less', {
       \ 'autoload': { 'filetypes' : ['less'] }
+      \}
+NeoBundleLazy 'wavded/vim-stylus', {
+      \ 'autoload': { 'filetypes' : ['styl'] }
       \}
 NeoBundleLazy 'mattn/emmet-vim', {
       \ 'autoload': { 'filetypes' : ['html','css'] }
