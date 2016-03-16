@@ -33,8 +33,14 @@ alias memcached="/usr/local/opt/memcached/bin/memcached"
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
 export EDITOR=/usr/local/bin/vim
+export HISTSIZE=1000
 
 eval "$(direnv hook zsh)"
+
+export PATH=$HOME/.rbenv/shims:$PATH
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+eval "$(rbenv init - zsh)"
 
 for file in `ls $HOME/.zsh/functions/*.zsh`
 do
@@ -53,6 +59,16 @@ fi
 if [ -f $HOME/.zsh/antigen.zsh ]
 then
   source $HOME/.zsh/antigen.zsh
+fi
+
+if [ -f /usr/local/share/zsh/site-functions/_aws ]
+then
+  source /usr/local/share/zsh/site-functions/_aws
+fi
+
+if [ -f $HOME/.embulk/bin/embulk ]
+then
+  export PATH=$HOME/.embulk/bin:$PATH
 fi
 
 # added by travis gem
