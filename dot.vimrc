@@ -75,10 +75,10 @@ NeoBundleLazy 'mattn/emmet-vim', {
       \ 'autoload': { 'filetypes' : ['html','css'] }
       \}
 NeoBundleLazy 'pangloss/vim-javascript', {
-      \ 'autoload' : { 'filetypes' : ['js', 'jsx'] }
+      \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
       \}
 NeoBundleLazy 'mxw/vim-jsx', {
-      \ 'autoload' : { 'filetypes' : ['js', 'jsx'] }
+      \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
       \}
 NeoBundleLazy 'fatih/vim-go', {
       \ 'autoload' : { 'filetypes' : ['go'] }
@@ -93,7 +93,7 @@ if has("mac")
 endif
 
 NeoBundleLazy 'scrooloose/syntastic', {
-      \ 'autoload' : { 'filetypes' : ['rb', 'coffee'] }
+      \ 'autoload' : { 'filetypes' : ['ruby', 'coffee', 'go', 'javascript'] }
       \}
 
 " Utility
