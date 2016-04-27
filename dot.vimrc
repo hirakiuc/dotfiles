@@ -74,7 +74,10 @@ NeoBundleLazy 'wavded/vim-stylus', {
 NeoBundleLazy 'mattn/emmet-vim', {
       \ 'autoload': { 'filetypes' : ['html','css'] }
       \}
-NeoBundleLazy 'pangloss/vim-javascript', {
+NeoBundleLazy 'othree/yajs.vim', {
+      \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
+      \}
+NeoBundleLazy 'othree/es.next.syntax.vim', {
       \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
       \}
 NeoBundleLazy 'mxw/vim-jsx', {
