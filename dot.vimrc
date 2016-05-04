@@ -42,6 +42,7 @@ NeoBundleLazy 'glidenote/serverspec-snippets', {
       \}
 NeoBundle 'honza/vim-snippets'
 
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'tpope/vim-fugitive'
