@@ -16,8 +16,16 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " plugin
-NeoBundleLazy 'Shougo/unite.vim', {
-      \ 'autoload' : { 'commands' : [ 'Unite' ] }
+"NeoBundleLazy 'Shougo/unite.vim', {
+"      \ 'autoload' : { 'commands' : [ 'Unite' ] }
+"      \}
+NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite-help', {
+      \ 'autoload' : { 'unite_sources' : 'help' }
+      \}
+NeoBundleLazy 'basyura/unite-rails', {
+      \ 'depends':["Shougo/unite.vim"],
+      \ 'autoload' : { 'filetypes' : [ 'ruby', 'ruby.rspec' ] }
       \}
 
 NeoBundleLazy 'Shougo/vimfiler.vim', {
@@ -25,11 +33,6 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
       \ 'autoload':{
       \   'commands': ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
       \ }
-      \}
-
-NeoBundleLazy 'basyura/unite-rails', {
-      \ 'depends':["Shougo/unite.vim"],
-      \   'commands':["Unite"]
       \}
 
 NeoBundle 'Shougo/neocomplete'
