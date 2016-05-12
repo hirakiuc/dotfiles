@@ -29,6 +29,7 @@ alias rakobjc="rak --type=objc"
 alias zsh="/usr/local/bin/zsh"
 alias be="bundle exec"
 alias memcached="/usr/local/opt/memcached/bin/memcached"
+alias mux=$(rbenv which tmuxinator)
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8

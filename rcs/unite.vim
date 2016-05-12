@@ -1,20 +1,33 @@
 """ unite
 
+" The prefix key.
+nnoremap [unite] <Nop>
+nmap , [unite]
+
+
 " 入力モードで開始する
 " let g:unite_enable_start_insert=1
 "
 " buffer list
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" buffer_tab list
+nnoremap <silent> [unite]B :<C-u>Unite buffer_tab<CR>
+" tab list
+nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
 " file list
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+
+" ignore filelist
+call unite#custom#source('file_rec,file_rec/async', 'ignore_pattern', '\.bundle$')
+
 " register list
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 " recently file list
-nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 " 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]u :<C-u>Unite buffer file_mru<CR>
 " all list
-nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " bookmark list
 "nnoremap <silent> ,ubl:<C-u>Unite bookmark<CR>
 " add bookmark
@@ -36,11 +49,16 @@ function! s:unite_my_settings()
 endfunction
 
 " grep search
-nnoremap <silent> ,g :<C-u>Unite grep: -buffer-name=search-buffer<CR>
+nnoremap <silent> [unite]G :<C-u>Unite grep: -buffer-name=search-buffer<CR>
 " grep search by the word under cursor
-nnoremap <silent> ,cg :<C-u>Unite grep: -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> [unite]g :<C-u>Unite grep: -buffer-name=search-buffer<CR><C-R><C-W>
 " recursive search
-nnoremap <silent> ,r :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> [unite]r :<C-u>UniteResume search-buffer<CR>
+
+" Execute help.
+nnoremap <C-h> :<C-u>Unite -start-insert help<CR>
+" Execute help by cursor keyword.
+nnoremap <silent> [unite]h :<C-u>UniteWithCursorWord help<CR>
 
 if executable('hw')
   let g:unite_source_grep_command = 'hw'
