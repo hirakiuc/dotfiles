@@ -2,7 +2,11 @@
 autoload -U add-zsh-hook
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
+    if [ `head -1 .nvmrc` == `node -v` ]; then
+      nvm use
+    else
+      echo "Using node `head -1 .nvmrc`"
+    fi
   fi
 }
 add-zsh-hook chpwd load-nvmrc
