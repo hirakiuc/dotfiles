@@ -23,14 +23,6 @@ autoload colors
 colors
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias ls="ls -FG"
-alias vim="/usr/local/bin/vim"
-alias rakobjc="rak --type=objc"
-alias zsh="/usr/local/bin/zsh"
-alias be="bundle exec"
-alias memcached="/usr/local/opt/memcached/bin/memcached"
-alias mux=$(rbenv which tmuxinator)
-
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
 export EDITOR=/usr/local/bin/vim
@@ -38,10 +30,10 @@ export HISTSIZE=1000
 
 eval "$(direnv hook zsh)"
 
-export PATH=$HOME/.rbenv/shims:$PATH
 # Load rbenv automatically by appending
 # the following to ~/.zshrc:
 eval "$(rbenv init - zsh)"
+export PATH=$HOME/.rbenv/shims:$PATH
 
 for file in `ls $HOME/.zsh/functions/*.zsh`
 do
@@ -71,6 +63,14 @@ if [ -f $HOME/.embulk/bin/embulk ]
 then
   export PATH=$HOME/.embulk/bin:$PATH
 fi
+
+alias ls="ls -FG"
+alias vim="/usr/local/bin/vim"
+alias rakobjc="rak --type=objc"
+alias zsh="/usr/local/bin/zsh"
+alias be="bundle exec"
+alias memcached="/usr/local/opt/memcached/bin/memcached"
+alias mux=$(rbenv which tmuxinator)
 
 # added by travis gem
 [ -f /Users/hirakiuc/.travis/travis.sh ] && source /Users/hirakiuc/.travis/travis.sh
