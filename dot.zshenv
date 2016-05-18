@@ -2,7 +2,7 @@ export PATH=/usr/local/bin:$PATH:$HOME/.bin
 export PATH=$PATH:$(brew --prefix git)/share/git-core/contrib/diff-highlight
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-export GOPATH=$HOME/.golang
+export GOPATH=$HOME/Desktop/godev
 export PATH=$PATH:$GOPATH/bin
 
 # for nvm (https://github.com/creationix/nvm)

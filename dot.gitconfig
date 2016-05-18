@@ -31,3 +31,5 @@
   diff = diff-highlight | less
 [init]
 	templatedir = ~/.git-templates/git-secrets
+[ghq]
+	root = ~/Desktop/godev
