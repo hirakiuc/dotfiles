@@ -28,6 +28,8 @@ export JLESSCHARSET=japanese-utf8
 export EDITOR=/usr/local/bin/vim
 export HISTSIZE=1000
 
+setopt hist_ignore_dups
+
 eval "$(direnv hook zsh)"
 
 # Load rbenv automatically by appending
