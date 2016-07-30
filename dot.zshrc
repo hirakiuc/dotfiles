@@ -13,11 +13,15 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=($HOME/.zsh/completions $fpath)
 
 autoload -U compinit
-compinit
+compinit -u
 
 # http://qiita.com/items/ed2d36698a5cc314557d
-zstyle ':completion:*' list-separator '-->'
-zstyle ':completion:*:manuals' separator-sections true
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' format '%B%d%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+#zstyle ':completion:*:manuals' separator-sections true
+zstyle ':completion:*:commands' rehash 1
 
 autoload colors
 colors
