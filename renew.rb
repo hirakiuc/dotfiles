@@ -1,0 +1,18 @@
+require_relative './lib/path.rb'
+require_relative './lib/migrator.rb'
+
+migrator = Migrator.new(force: true)
+
+# Create symlink from dot.xxx
+Dir.glob('./dot\.*').each do |name|
+  src = Path.from_cwd(name)
+  dst = Path.from_home(name.gsub(%r{^\./dot}, ''))
+
+  migrator.renew(src, dst)
+end
+
+# ~/.vim/rcs
+migrator.renew(
+  Path.from_cwd('rcs'),
+  Path.from_home('.vim/rcs')
+)
