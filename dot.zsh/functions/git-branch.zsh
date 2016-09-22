@@ -35,5 +35,9 @@ function rprompt-git-current-branch
         echo "$color$name$action%f%b "
 }
 
-RPROMPT='[`rprompt-git-current-branch`%~]'
+function rprompt-git-path
+{
+  echo $(pwd | sed -e "s,^$(ghq root)/,ghq:,")
+}
 
+RPROMPT='[`rprompt-git-current-branch``rprompt-git-path`]'
