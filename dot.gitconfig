@@ -32,4 +32,4 @@
 [init]
 	templatedir = ~/.git-templates/git-secrets
 [ghq]
-	root = ~/Desktop/repos/src
+	root = ~/repos/src
