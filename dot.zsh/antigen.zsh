@@ -1,4 +1,6 @@
-source ~/.zsh/antigen/antigen.zsh
+source $(brew --prefix)/share/antigen/antigen.zsh
+
+antigen use oh-my-zsh
 
 # Bundles from the detault repo
 antigen bundle git

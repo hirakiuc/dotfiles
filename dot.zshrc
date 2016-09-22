@@ -55,10 +55,8 @@ then
   source $HOME/.rvm/scripts/rvm
 fi
 
-if [ -f $HOME/.zsh/antigen.zsh ]
-then
-  source $HOME/.zsh/antigen.zsh
-fi
+# Enable antigen
+source $HOME/.zsh/antigen.zsh
 
 if [ -f /usr/local/share/zsh/site-functions/_aws ]
 then
