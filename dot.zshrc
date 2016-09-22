@@ -1,13 +1,3 @@
-
-if [ ${USER} = "root" ]
-then
-#  PROMPT="%{[31m%}[%n@%m]#%{[m%} "
-  PROMPT="[%n@%m]$ "
-  PATH=${PATH}:/sbin:/usr/sbin:/usr/local/sbin
-else
-  PROMPT="[%n@%m]$ "
-fi
-
 fpath=($(brew --prefix)/share/zsh-completions $fpath)
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=($HOME/.zsh/completions $fpath)
@@ -41,6 +31,10 @@ eval "$(direnv hook zsh)"
 eval "$(rbenv init - zsh)"
 export PATH=$HOME/.rbenv/shims:$PATH
 
+# Enable antigen
+source $HOME/.zsh/antigen.zsh
+
+# Load custom codes.
 for file in `ls $HOME/.zsh/functions/*.zsh`
 do
   source $file
@@ -54,9 +48,6 @@ if [ -f $HOME/.rvm/scripts/rvm ]
 then
   source $HOME/.rvm/scripts/rvm
 fi
-
-# Enable antigen
-source $HOME/.zsh/antigen.zsh
 
 if [ -f /usr/local/share/zsh/site-functions/_aws ]
 then
