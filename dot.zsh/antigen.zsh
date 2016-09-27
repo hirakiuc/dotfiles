@@ -10,6 +10,7 @@ antigen bundle bundler
 antigen bundle git-flow
 antigen bundle rbenv
 antigen bundle zsh-users/zsh-completions src
+antigen bundle jocelynmallon/zshmarks
 
 # Syntax highlighting bundle.
 antigen-bundle zsh-users/zsh-syntax-highlighting
