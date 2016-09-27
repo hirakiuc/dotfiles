@@ -1,5 +1,8 @@
 # Created by https://www.gitignore.io/api/vim
 
+# office specific file.
+dot.zsh/functions/tmux_tabs.zsh
+
 ### Vim ###
 # swap
 [._]*.s[a-w][a-z]
