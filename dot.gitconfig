@@ -28,8 +28,10 @@
 [pager]
   log = diff-highlight | less
   show = diff-highlight | less
-  diff = diff-highlight | less
+  diff = diff-highlight
 [init]
 	templatedir = ~/.git-templates/git-secrets
 [ghq]
 	root = ~/repos/src
+[diff]
+	compactionHeuristic = true
