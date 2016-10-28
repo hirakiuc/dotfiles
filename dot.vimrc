@@ -96,6 +96,9 @@ NeoBundleLazy 'elixir-lang/vim-elixir', {
 NeoBundleLazy 'hashivim/vim-terraform', {
       \ 'autoload' : { 'filetypes' : ['tf'] }
       \}
+NeoBundleLazy 'sealemar/vtl', {
+      \ 'autoload' : { 'filetypes' : ['vm'] }
+      \}
 if has("mac")
   NeoBundleLazy 'toyamarinyon/vim-swift', {
         \ 'autoload' : { 'filetypes' : ['swift'] }
