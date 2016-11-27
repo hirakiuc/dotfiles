@@ -16,6 +16,11 @@ end
 
 # ~/.vim/rcs
 migrator.renew(
-  Path.from_cwd('rcs'),
+  Path.from_cwd('dot.vim/rcs'),
   Path.from_home('.vim/rcs')
+)
+
+migrator.renew(
+  Path.from_cwd('dot.vim/after'),
+  Path.from_home('.vim/after')
 )
