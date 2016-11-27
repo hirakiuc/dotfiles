@@ -1,5 +1,5 @@
 function! PecoOpen()
-  for filename in split(system("find . -type f -o -path './.git' -prune | peco"), "\n")
+  for filename in split(system("hawkeye | peco"), "\n")
     execute "e" filename
   endfor
 endfunction
