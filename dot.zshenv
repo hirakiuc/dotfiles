@@ -6,4 +6,5 @@ export GOPATH=$HOME/repos
 export PATH=$PATH:$GOPATH/bin
 
 # for nvm (https://github.com/creationix/nvm)
-[[ -s $HOME/.nvm/nvm.sh ]] && source $HOME/.nvm/nvm.sh
+export NVM_DIR=$HOME/.nvm
+[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && source "$(brew --prefix nvm)/nvm.sh"
