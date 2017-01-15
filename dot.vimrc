@@ -115,6 +115,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'kana/vim-submode'
 NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'cohama/lexima.vim'
 
 " colorscheme
 NeoBundle 'nanotech/jellybeans.vim'
