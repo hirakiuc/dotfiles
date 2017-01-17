@@ -24,3 +24,8 @@ migrator.renew(
   Path.from_cwd('dot.vim/after'),
   Path.from_home('.vim/after')
 )
+
+migrator.renew(
+  Path.from_cwd('dot.vim/snippets'),
+  Path.from_home('.vim/snippets')
+)

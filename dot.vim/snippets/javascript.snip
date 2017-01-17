@@ -1,0 +1,71 @@
+snippet strict
+abbr    strict
+  'use strict';
+
+snippet require
+abbr    req
+options head
+  const ${1:name} = require('${2:package}')
+
+snippet describe
+abbr    desc
+  describe('${1:name}', () => {
+    ${2:content}
+  });
+
+snippet before
+  before((done) => {
+    ${1:content}
+  });
+
+snippet after
+  after((done) => {
+    ${1:content}
+  });
+
+snippet it-block
+  it('${1:name}', (${2:async}) => {
+    ${:3content}
+  });
+
+snippet co-block
+  co(function * () => {
+    ${1:content}
+  });
+
+snippet co-block-notify
+  co(function * () => {
+    ${1:content}
+  })
+  .then(done)
+  .catch(done);
+
+snippet class
+  class ${1:name} extends ${2:base} {
+    ${1:content}
+  };
+
+snippet constructor
+  constructor(${1:args}) {
+    ${1:content}
+  }
+
+snippet forEach
+  forEach((${1:item}, index) => {
+    ${2:content}
+  });
+
+snippet filter
+  filter((${1:item}, index) => {
+    ${2:content}
+  });
+
+snippet map
+  map((${1:item}, index), => {
+    ${2:content}
+  });
+
+snippet reduce
+  reduce((${1:item}, index) => {
+    ${3:content}
+  }, ${2:initial})
