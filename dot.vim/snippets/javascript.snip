@@ -13,6 +13,12 @@ abbr    desc
     ${2:content}
   });
 
+snippet describe-async
+abbr    desc
+  describe('${1:name}', (done) => {
+    ${2:content}
+  })
+
 snippet before
   before((done) => {
     ${1:content}
@@ -24,7 +30,12 @@ snippet after
   });
 
 snippet it-block
-  it('${1:name}', (${2:async}) => {
+  it('${1:name}', () => {
+    ${:3content}
+  });
+
+snippet it-block-async
+  it('${1:name}', (done) => {
     ${:3content}
   });
 
