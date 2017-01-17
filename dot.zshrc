@@ -26,6 +26,7 @@ setopt hist_ignore_dups
 
 eval "$(direnv hook zsh)"
 
+export RBENV_ROOT=$HOME/.rbenv/
 export PATH=$PATH:$HOME/.rbenv/bin
 # Load rbenv automatically by appending
 # the following to ~/.zshrc:
