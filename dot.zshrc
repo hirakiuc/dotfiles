@@ -33,6 +33,10 @@ export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(rbenv init - zsh)"
 export PATH=$HOME/.rbenv/shims:$PATH
 
+# for nvm (https://github.com/creationix/nvm)
+export NVM_DIR=$HOME/.nvm
+[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && source "$(brew --prefix nvm)/nvm.sh"
+
 # Enable antigen
 source $HOME/.zsh/antigen.zsh
 
