@@ -13,12 +13,6 @@ abbr    desc
     ${2:content}
   });
 
-snippet describe-async
-abbr    desc
-  describe('${1:name}', (done) => {
-    ${2:content}
-  })
-
 snippet before
   before((done) => {
     ${1:content}
@@ -45,7 +39,7 @@ snippet co-block
   });
 
 snippet co-block-notify
-  co(function * () => {
+  co(function * () {
     ${1:content}
   })
   .then(done)
