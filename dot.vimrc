@@ -130,13 +130,6 @@ colorscheme jellybeans
 set runtimepath+=~/.vim/
 runtime! rcs/*.vim
 
-" CocoaPods
-au BufNewFile,BufRead Podfile,*.podspec  set filetype=ruby
-au BufNewFile,BufRead *.json.jbuilder set ft=ruby
-
-" cap, Gemfile
-au BufNewFile,BufRead *.cap set ft=ruby
-
 " encoding
 "execute "source " . '~/.vim/auto-encoding.vim'
 execute "source " . '~/.vim/highlight-trailing-spaces.vim'
