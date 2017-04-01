@@ -1,126 +1,34 @@
-if has('vim_starting')
-  if &compatible
-    set nocompatible  " Be iMproved
+let s:dein_dir = expand('~/.vim/cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-
-" plugin
-"NeoBundleLazy 'Shougo/unite.vim', {
-"      \ 'autoload' : { 'commands' : [ 'Unite' ] }
-"      \}
-NeoBundle 'Shougo/unite.vim'
-NeoBundleLazy 'Shougo/unite-help', {
-      \ 'autoload' : { 'unite_sources' : 'help' }
-      \}
-NeoBundleLazy 'basyura/unite-rails', {
-      \ 'depends':["Shougo/unite.vim"],
-      \ 'autoload' : { 'filetypes' : [ 'ruby', 'ruby.rspec' ] }
-      \}
-
-NeoBundleLazy 'Shougo/vimfiler.vim', {
-      \ 'depends':["Shougo/unite.vim"],
-      \ 'autoload':{
-      \   'commands': ["VimFilerTab", "VimFiler", "VimFilerExplorer"]
-      \ }
-      \}
-
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundleLazy 'glidenote/serverspec-snippets', {
-      \ 'autoload': {
-      \   'filetypes' : ['ruby','serverspec']
-      \ }
-      \}
-NeoBundle 'honza/vim-snippets'
-
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-rails'
-
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-      \ 'autoload' : {
-      \   'filetypes' : ['ruby','rake']
-      \ }
-      \}
-NeoBundleLazy 'keith/rspec.vim', {
-      \ 'autoload': {
-      \   'filetypes' : ['ruby']
-      \ }
-      \}
-
-" languages
-NeoBundleLazy 'slim-template/vim-slim', {
-      \ 'autoload': { 'filetypes' : ['slim'] }
-      \}
-NeoBundleLazy 'kchmck/vim-coffee-script', {
-      \ 'autoload': { 'filetypes' : ['coffee'] }
-      \}
-NeoBundleLazy 'groenewege/vim-less', {
-      \ 'autoload': { 'filetypes' : ['less'] }
-      \}
-NeoBundleLazy 'wavded/vim-stylus', {
-      \ 'autoload': { 'filetypes' : ['styl'] }
-      \}
-NeoBundleLazy 'mattn/emmet-vim', {
-      \ 'autoload': { 'filetypes' : ['html','css'] }
-      \}
-NeoBundleLazy 'othree/yajs.vim', {
-      \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
-      \}
-NeoBundleLazy 'othree/es.next.syntax.vim', {
-      \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
-      \}
-NeoBundleLazy 'mxw/vim-jsx', {
-      \ 'autoload' : { 'filetypes' : ['javascript', 'jsx'] }
-      \}
-NeoBundleLazy 'fatih/vim-go', {
-      \ 'autoload' : { 'filetypes' : ['go'] }
-      \}
-NeoBundleLazy 'elixir-lang/vim-elixir', {
-      \ 'autoload' : { 'filetypes' : ['exs'] }
-      \}
-NeoBundleLazy 'hashivim/vim-terraform', {
-      \ 'autoload' : { 'filetypes' : ['tf'] }
-      \}
-NeoBundleLazy 'sealemar/vtl', {
-      \ 'autoload' : { 'filetypes' : ['vm'] }
-      \}
-if has("mac")
-  NeoBundleLazy 'toyamarinyon/vim-swift', {
-        \ 'autoload' : { 'filetypes' : ['swift'] }
-        \}
+if &compatible
+  set nocompatible
 endif
 
-NeoBundleLazy 'scrooloose/syntastic', {
-      \ 'autoload' : { 'filetypes' : ['ruby', 'coffee', 'go', 'javascript'] }
-      \}
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-" Utility
-NeoBundle 'tpope/vim-endwise.git'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'kana/vim-submode'
-NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'cohama/lexima.vim'
+  let s:rc_dir    = expand('~/.vim/')
+  let s:toml      = s:rc_dir . 'dein.toml'
+  let s:toml_lazy = s:rc_dir . 'dein_lazy.toml'
 
-" colorscheme
-NeoBundle 'nanotech/jellybeans.vim'
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:toml_lazy, {'lazy': 1})
 
-call neobundle#end()
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
 
 filetype plugin indent on
 
@@ -143,5 +51,3 @@ endif
 " for us keyboard
 noremap ; :
 noremap : ;
-
-NeoBundleCheck

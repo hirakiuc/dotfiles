@@ -29,3 +29,25 @@ migrator.renew(
   Path.from_cwd('dot.vim/snippets'),
   Path.from_home('.vim/snippets')
 )
+
+migrator.renew(
+  Path.from_cwd('dot.vim/dein.toml'),
+  Path.from_home('.vim/dein.toml')
+)
+
+migrator.renew(
+  Path.from_cwd('dot.vim/dein_lazy.toml'),
+  Path.from_home('.vim/dein_lazy.toml')
+)
+
+# nvim
+Dir.mkdir(File.expand_path('~/.config')) unless Dir.exist?(File.expand_path('~/.config'))
+migrator.renew(
+  Path.from_home('.vim'),
+  Path.from_home('.config/nvim')
+)
+
+migrator.renew(
+ Path.from_home('.vimrc'),
+ Path.from_home('.config/nvim/init.vim')
+)
