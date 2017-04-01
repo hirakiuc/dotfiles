@@ -30,9 +30,10 @@ if dein#check_install()
   call dein#install()
 endif
 
-filetype plugin indent on
-
+set background=dark
 colorscheme jellybeans
+
+filetype plugin indent on
 
 " load ~/.vim/rcs/*.vim
 set runtimepath+=~/.vim/
