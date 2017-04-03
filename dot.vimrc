@@ -44,7 +44,7 @@ runtime! rcs/*.vim
 execute "source " . '~/.vim/highlight-trailing-spaces.vim'
 
 " http://kazukiq.ldblog.jp/archives/51843772.html
-if has('mac')
+if has('mac') && has('vim')
   autocmd FocusGained * set transparency=10
   autocmd FocusLost * set transparency=50
 endif
