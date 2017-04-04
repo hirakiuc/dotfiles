@@ -5,5 +5,6 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 " cap, Gemfile
 au BufNewFile,BufRead *.cap set ft=ruby
 
-" jb
+" ruby templates
 au BufNewFile,BufRead *.jb set ft=ruby
+au BufNewFile,BufRead *.yajl set ft=ruby
