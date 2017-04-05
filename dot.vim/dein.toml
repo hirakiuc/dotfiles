@@ -3,6 +3,10 @@ repo = 'Shougo/unite.vim'
 if   = '''has('vim')'''
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+if = '''has('nvim')'''
+
+[[plugins]]
 repo = 'Shougo/neocomplete'
 if   = '''has('vim')'''
 
