@@ -27,6 +27,12 @@ hook_add = 'let g:deoplete#enable_at_startup = 1'
 on_i = 1
 
 [[plugins]]
+repo = 'zchee/deoplete-go'
+if = '''has('nvim')'''
+on_ft = ['go']
+depends = ['deoplete']
+
+[[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
   if has('nvim')
