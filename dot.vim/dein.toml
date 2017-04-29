@@ -7,7 +7,7 @@ repo = 'Shougo/denite.nvim'
 if = '''has('nvim')'''
 hook_add = '''
   nnoremap [denite] <Nop>
-  nmap ' [denite]
+  nmap ` [denite]
 
   nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
   nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
