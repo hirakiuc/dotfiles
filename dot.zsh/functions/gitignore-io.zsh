@@ -2,4 +2,4 @@
 #
 # Usage: $ gi linux,java
 #
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
