@@ -10,6 +10,7 @@
   sort=version:refname
 [core]
 	editor = /usr/local/bin/vim
+  excludesfile = ~/.gitignore_global
 [merge]
 	ff = false
 [alias]
