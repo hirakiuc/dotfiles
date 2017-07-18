@@ -1,5 +1,6 @@
 let g:ale_linters = {
       \ 'javascript' : ['eslint'],
+      \ 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'go vet', 'staticcheck']
       \}
 
 " keep the sign gutter open at all times
