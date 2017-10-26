@@ -67,6 +67,7 @@ fi
 
 alias ls="ls -FG"
 alias vim="/usr/local/bin/nvim"
+alias vvim="/usr/local/bin/vim"
 alias rakobjc="rak --type=objc"
 alias zsh="/usr/local/bin/zsh"
 alias be="bundle exec"
