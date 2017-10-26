@@ -49,6 +49,11 @@ if has('mac') && has('vim')
   autocmd FocusLost * set transparency=50
 endif
 
+if has('nvim')
+  set ttimeout
+  set ttimeoutlen=50
+endif
+
 " for us keyboard
 noremap ; :
 noremap : ;
