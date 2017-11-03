@@ -30,6 +30,13 @@ bind generic gp parent
 bind generic gP back
 bind generic gn view-next
 
+bind generic gb !@hub browse
+bind generic gi !@hub browse -- issues
+bind generic gc !@hub browse -- commit/%(commit)
+bind generic gs !@hub ci-status %(commit)
+bind branch [  !@hub compare %(branch)
+bind main   {  !@hub pull-request
+
 bind main    G  none
 bind generic G  move-last-line
 

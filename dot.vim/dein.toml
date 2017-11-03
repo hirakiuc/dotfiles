@@ -80,3 +80,6 @@ repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
