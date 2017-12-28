@@ -62,3 +62,14 @@ on_ft = ['swift']
 [[plugins]]
 repo = 'scrooloose/syntastic'
 on_ft = ['ruby', 'coffee', 'go', 'javascript']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
+[[plugins]]
+repo = 'mhartington/nvim-typescript'
+on_ft = ['typescript']
+hook_add = '''
+  let g:nvim_typescript#vue_support = 1
+'''

@@ -69,3 +69,6 @@ repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
