@@ -39,3 +39,5 @@
 	root = ~/repos/src
 [diff]
 	compactionHeuristic = true
+[commit]
+	template = /Users/hirakiuc/.git-templates/emoji_commit_template
