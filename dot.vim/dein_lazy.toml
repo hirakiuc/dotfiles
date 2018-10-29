@@ -60,16 +60,17 @@ if = '''! has('mac')'''
 on_ft = ['swift']
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
-on_ft = ['ruby', 'coffee', 'go', 'javascript']
-
-[[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
+build = './install'
 on_ft = ['typescript']
 hook_add = '''
   let g:nvim_typescript#vue_support = 1
 '''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
