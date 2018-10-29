@@ -40,6 +40,12 @@ migrator.renew(
   Path.from_home('.vim/dein_lazy.toml')
 )
 
+Dir.mkdir(File.expand_path('~/.git-templates')) unless Dir.exists?(File.expand_path('~/.git-templates'))
+migrator.renew(
+  Path.from_cwd('dot.git-templates/emoji_commit_template'),
+  Path.from_home('.git-templates/emoji_commit_template')
+)
+
 # nvim
 Dir.mkdir(File.expand_path('~/.config')) unless Dir.exist?(File.expand_path('~/.config'))
 migrator.renew(
