@@ -4,19 +4,20 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let g:python_host_prog =  '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath+=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
-
 if &compatible
-  set nocompatible
+  set nocompatible " Be iMproved
 endif
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+" Required:
+set runtimepath+=/Users/hirakiuc/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/hirakiuc/.cache/dein')
+  call dein#begin('/Users/hirakiuc/.cache/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/hirakiuc/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   let s:rc_dir    = expand('~/.vim/')
   let s:toml      = s:rc_dir . 'dein.toml'
@@ -25,18 +26,22 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:toml_lazy, {'lazy': 1})
 
+  " Required:
   call dein#end()
   call dein#save_state()
 endif
 
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
 
 set background=dark
 colorscheme jellybeans
-
-filetype plugin indent on
 
 " load ~/.vim/rcs/*.vim
 set runtimepath+=~/.vim/
