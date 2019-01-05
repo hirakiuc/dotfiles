@@ -59,9 +59,6 @@ repo = 'airblade/vim-gitgutter'
 repo = 'kana/vim-submode'
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
 repo = 'cohama/lexima.vim'
 
 [[plugins]]
