@@ -41,3 +41,5 @@
 	compactionHeuristic = true
 [commit]
 	template = /Users/hirakiuc/.git-templates/emoji_commit_template
+[credential]
+	helper = osxkeychain
