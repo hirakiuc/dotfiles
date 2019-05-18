@@ -1,4 +1,16 @@
 if has('nvim')
+  let s:denite_win_width_percent = 0.8
+  let s:denite_win_height_percent = 0.6
+
+  " Change denite default options
+  call denite#custom#option('default', {
+    \ 'split': 'floating',
+    \ 'winwidth': &columns * s:denite_win_width_percent,
+    \ 'wincol': (&columns - (&columns * s:denite_win_width_percent)) / 2,
+    \ 'winheight': &lines * s:denite_win_height_percent,
+    \ 'winrow': (&lines - (&lines * s:denite_win_height_percent)) / 2,
+    \ })
+
   call denite#custom#var('file_rec', 'command',
    \ ['/usr/local/bin/ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',

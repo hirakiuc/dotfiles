@@ -74,3 +74,7 @@ hook_add = '''
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
+
+[[plugins]]
+repo = 'ncm2/float-preview.nvim'
+if = '''has('nvim')'''
