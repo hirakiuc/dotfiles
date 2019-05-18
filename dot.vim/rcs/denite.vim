@@ -2,15 +2,6 @@ if has('nvim')
   let s:denite_win_width_percent = 0.8
   let s:denite_win_height_percent = 0.6
 
-  " Change denite default options
-  call denite#custom#option('default', {
-    \ 'split': 'floating',
-    \ 'winwidth': &columns * s:denite_win_width_percent,
-    \ 'wincol': (&columns - (&columns * s:denite_win_width_percent)) / 2,
-    \ 'winheight': &lines * s:denite_win_height_percent,
-    \ 'winrow': (&lines - (&lines * s:denite_win_height_percent)) / 2,
-    \ })
-
   call denite#custom#var('file_rec', 'command',
    \ ['/usr/local/bin/ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
@@ -31,11 +22,11 @@ if has('nvim')
   nnoremap [denite] <Nop>
   nmap ` [denite]
 
-  nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
-  nnoremap <silent> [denite]f :<C-u>Denite file_rec<CR>
-  nnoremap <silent> [denite]d :<C-u>Denite directory_rec<CR>
-  nnoremap <silent> [denite]g :<C-u>Denite grep<CR>
-  nnoremap <silent> [denite]r :<C-u>Denite -resume<CR>
+  nnoremap <silent> [denite]b :<C-u>Denite buffer -split="floating"<CR>
+  nnoremap <silent> [denite]f :<C-u>Denite file_rec -split="floating"<CR>
+  nnoremap <silent> [denite]d :<C-u>Denite directory_rec -split="floating"<CR>
+  nnoremap <silent> [denite]g :<C-u>Denite grep -split="floating"<CR>
+  nnoremap <silent> [denite]r :<C-u>Denite -resume -split="floating"<CR>
 
   nnoremap <silent> [denite]p :<C-u>Denite -resume -immediately -select=-1<CR>
   nnoremap <silent> [denite]n :<C-u>Denite -resume -immediately -select=+1<CR>
