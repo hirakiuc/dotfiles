@@ -1,50 +1,54 @@
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
-on_ft = ['ruby', 'rake']
+# [[plugins]]
+# repo = 'vim-ruby/vim-ruby'
+# on_ft = ['ruby', 'rake']
 
-[[plugins]]
-repo = 'keith/rspec.vim'
-on_ft = ['ruby']
+# [[plugins]]
+# repo = 'keith/rspec.vim'
+# on_ft = ['ruby']
 
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = ['slim']
+# [[plugins]]
+# repo = 'slim-template/vim-slim'
+# on_ft = ['slim']
 
-[[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = ['coffee']
+# [[plugins]]
+# repo = 'kchmck/vim-coffee-script'
+# on_ft = ['coffee']
 
-[[plugins]]
-repo = 'groenewege/vim-less'
-on_ft = ['less']
+# [[plugins]]
+# repo = 'groenewege/vim-less'
+# on_ft = ['less']
 
-[[plugins]]
-repo = 'wavded/vim-stylus'
-on_ft = ['styl']
+# [[plugins]]
+# repo = 'wavded/vim-stylus'
+# on_ft = ['styl']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css']
 
-[[plugins]]
-repo = 'othree/yajs.vim'
-on_ft = ['javascript', 'jsx']
+# [[plugins]]
+# repo = 'othree/yajs.vim'
+# on_ft = ['javascript', 'jsx']
 
-[[plugins]]
-repo = 'othree/es.next.syntax.vim'
-on_ft = ['javascript', 'jsx']
+# [[plugins]]
+# repo = 'othree/es.next.syntax.vim'
+# on_ft = ['javascript', 'jsx']
 
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = ['javascript', 'jsx']
+# [[plugins]]
+# repo = 'mxw/vim-jsx'
+# on_ft = ['javascript', 'jsx']
 
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
 
 [[plugins]]
-repo = 'elixir-lang/vim-elixir'
-on_ft = ['exs']
+repo = 'lumiliet/vim-twig'
+on_ft = ['php']
+
+# [[plugins]]
+# repo = 'elixir-lang/vim-elixir'
+# on_ft = ['exs']
 
 [[plugins]]
 repo = 'hashivim/vim-terraform'
@@ -54,14 +58,29 @@ on_ft = ['tf']
 repo = 'sealemar/vtl'
 on_ft = ['vm']
 
-[[plugins]]
-repo = 'toyamarinyon/vim-swift'
-if = '''! has('mac')'''
-on_ft = ['swift']
+# [[plugins]]
+# repo = 'toyamarinyon/vim-swift'
+# if = '''! has('mac')'''
+# on_ft = ['swift']
+
+#[[plugins]]
+#repo = 'scrooloose/syntastic'
+#on_ft = ['ruby', 'coffee', 'go', 'javascript']
 
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
+
+# [[plugins]]
+# repo = 'mhartington/nvim-typescript'
+# on_ft = ['typescript']
+# hook_add = '''
+#   let g:nvim_typescript#vue_support = 1
+# '''
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']
 
 [[plugins]]
 repo = 'mhartington/nvim-typescript'
@@ -78,3 +97,4 @@ on_ft = ['typescript']
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 if = '''has('nvim')'''
+

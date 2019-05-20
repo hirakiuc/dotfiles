@@ -19,6 +19,7 @@ if has('nvim')
   let g:LanguageClient_serverCommands = {
     \ 'vue': ['vls'],
     \ }
+
   " not stop completion
   setlocal iskeyword+=$
   setlocal iskeyword+=-
