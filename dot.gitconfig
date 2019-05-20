@@ -1,6 +1,6 @@
 [user]
 	name = hirakiuc
-	email = hirakiuc@gmail.com
+	email = hirakiuc@mercari.com
 [color]
 	ui = true
 [tig "bind"]
@@ -39,7 +39,7 @@
 	root = ~/repos/src
 [diff]
 	compactionHeuristic = true
-[commit]
-	template = /Users/hirakiuc/.git-templates/emoji_commit_template
 [credential]
 	helper = osxkeychain
+[branch]
+  autosetuprebase = always

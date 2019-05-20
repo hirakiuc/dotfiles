@@ -3,6 +3,8 @@ let g:ale_linters = {
       \ 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'go vet', 'staticcheck']
       \}
 
+let g:ale_fixers = ['prettier', 'eslint']
+
 " keep the sign gutter open at all times
 let g:ale_sign_column_always = 1
 

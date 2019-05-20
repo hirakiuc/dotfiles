@@ -8,6 +8,7 @@ if has('nvim')
     \ ['.git/', '.bundle/', 'node_modules/', '*.swp', '*~', 'vendor/'])
 
   call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+  call denite#custom#source('file_rec', 'sorters', ['sorter/sublime'])
   call denite#custom#source('directory_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
 
   call denite#custom#var('grep', 'command', ['/usr/local/bin/ag'])
