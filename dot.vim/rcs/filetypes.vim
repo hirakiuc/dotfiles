@@ -8,3 +8,6 @@ au BufNewFile,BufRead *.cap set ft=ruby
 " ruby templates
 au BufNewFile,BufRead *.jb set ft=ruby
 au BufNewFile,BufRead *.yajl set ft=ruby
+
+" go
+au BufNewFile,BufRead *.go set list listchars=tab:»-
