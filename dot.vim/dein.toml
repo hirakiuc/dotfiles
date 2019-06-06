@@ -72,11 +72,11 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-if = '''has('nvim')'''
-rev = 'next'
-build = 'bash install.sh'
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#if = '''has('nvim')'''
+#rev = 'next'
+#build = 'bash install.sh'
 
 [[plugins]]
 repo = 'w0rp/ale'

@@ -1,9 +1,14 @@
 let g:ale_linters = {
       \ 'javascript' : ['eslint'],
-      \ 'go': ['go build', 'gofmt', 'golint', 'gometalinter', 'gosimple', 'go vet', 'staticcheck']
+      \ 'go': ['gofmt', 'golangci-lint']
       \}
 
 let g:ale_fixers = ['prettier', 'eslint']
+
+" command-line arguments
+let g:ale_go_golangci_lint_options = '--enable-all -D dupl'
+" The whole Go package will be checked instead of only the current file.
+let g:ale_go_golangci_lint_package = 1
 
 " keep the sign gutter open at all times
 let g:ale_sign_column_always = 1
