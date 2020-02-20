@@ -98,3 +98,6 @@ on_ft = ['typescript']
 repo = 'ncm2/float-preview.nvim'
 if = '''has('nvim')'''
 
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
