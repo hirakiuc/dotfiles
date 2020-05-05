@@ -22,6 +22,9 @@ export JLESSCHARSET=japanese-utf8
 export EDITOR=/usr/local/bin/vim
 export HISTSIZE=1000
 
+# To fix the error messages from vim on launching time
+export LC_ALL=en_US.UTF-8
+
 setopt hist_ignore_dups
 
 eval "$(direnv hook zsh)"
@@ -75,4 +78,11 @@ alias memcached="/usr/local/opt/memcached/bin/memcached"
 alias mux=$(rbenv which tmuxinator)
 
 # added by travis gem
-[ -f /Users/hirakiuc/.travis/travis.sh ] && source /Users/hirakiuc/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+
+if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then
+  . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+fi
+if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]; then
+  . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+fi
