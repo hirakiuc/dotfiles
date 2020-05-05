@@ -101,3 +101,7 @@ if = '''has('nvim')'''
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']
