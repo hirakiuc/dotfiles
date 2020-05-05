@@ -9,15 +9,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/hirakiuc/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/hirakiuc/.cache/dein')
-  call dein#begin('/Users/hirakiuc/.cache/dein')
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/hirakiuc/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add(s:dein_repo_dir)
 
   let s:rc_dir    = expand('~/.vim/')
   let s:toml      = s:rc_dir . 'dein.toml'
@@ -49,7 +49,7 @@ runtime! rcs/*.vim
 
 " encoding
 "execute "source " . '~/.vim/auto-encoding.vim'
-execute "source " . '~/.vim/highlight-trailing-spaces.vim'
+"execute "source " . '~/.vim/highlight-trailing-spaces.vim'
 
 " http://kazukiq.ldblog.jp/archives/51843772.html
 if has('mac') && has('vim')

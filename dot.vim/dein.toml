@@ -2,8 +2,10 @@
 repo = 'Shougo/denite.nvim'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
+repo = 'chemzqm/denite-git'
 
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 on_ft = ['javascript']
@@ -37,8 +39,8 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'tpope/vim-rails'
+# [[plugins]]
+# repo = 'tpope/vim-rails'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'

@@ -29,12 +29,12 @@ setopt hist_ignore_dups
 
 eval "$(direnv hook zsh)"
 
-export RBENV_ROOT=$HOME/.rbenv/
-export PATH=$PATH:$HOME/.rbenv/bin
+# export RBENV_ROOT=$HOME/.rbenv/
+# export PATH=$PATH:$HOME/.rbenv/bin
 # Load rbenv automatically by appending
 # the following to ~/.zshrc:
-eval "$(rbenv init - zsh)"
-export PATH=$HOME/.rbenv/shims:$PATH
+# eval "$(rbenv init - zsh)"
+# export PATH=$HOME/.rbenv/shims:$PATH
 
 # for nvm (https://github.com/creationix/nvm)
 export NVM_DIR=$HOME/.nvm
@@ -75,7 +75,7 @@ alias rakobjc="rak --type=objc"
 alias zsh="/usr/local/bin/zsh"
 alias be="bundle exec"
 alias memcached="/usr/local/opt/memcached/bin/memcached"
-alias mux=$(rbenv which tmuxinator)
+# alias mux=$(rbenv which tmuxinator)
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
