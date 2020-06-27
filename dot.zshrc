@@ -95,3 +95,6 @@ fi
 if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]; then
   . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 fi
+
+# gh
+eval "$(gh completion -s zsh)"
