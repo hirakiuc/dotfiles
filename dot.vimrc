@@ -1,7 +1,6 @@
 let s:dein_dir = expand('~/.vim/cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-let g:python_host_prog =  '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 if &compatible
