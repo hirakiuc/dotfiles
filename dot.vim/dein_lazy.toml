@@ -105,3 +105,7 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
 on_ft = ['plantuml']
+
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+on_ft = ['Dockerfile', 'docker-compose']
