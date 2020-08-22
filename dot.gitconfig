@@ -16,10 +16,12 @@
 [alias]
   ad = add
   co = checkout
+  sw = switch
   ci = commit
   st = status
   sh = stash
   br = branch
+  re = restore
   brl = "!git branch | grep -v 'archive/*'"
   pullff = "pull --ff"
 [push]
@@ -43,3 +45,5 @@
 	helper = osxkeychain
 [branch]
   autosetuprebase = always
+[pull]
+	ff = only
