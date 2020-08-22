@@ -6,15 +6,19 @@ repo = 'chemzqm/denite-git'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
 on_ft = ['javascript']
 depends = ['deoplete']
 
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = ['go']
-depends = ['deoplete']
+#[[plugins]]
+#repo = 'deoplete-plugins/deoplete-go'
+#on_ft = ['go']
+#depends = ['deoplete']
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -73,10 +77,15 @@ repo = 'itchyny/lightline.vim'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-if = '''has('nvim')'''
-rev = 'next'
-build = 'bash install.sh'
+repo = 'w0rp/ale'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'prabirshrestha/vim-lsp'
+if = '''has('nvim')'''
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+if = '''has('vim')'''
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'

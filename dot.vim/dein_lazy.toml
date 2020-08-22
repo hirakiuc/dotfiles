@@ -11,10 +11,6 @@
 # on_ft = ['slim']
 
 # [[plugins]]
-# repo = 'kchmck/vim-coffee-script'
-# on_ft = ['coffee']
-
-# [[plugins]]
 # repo = 'groenewege/vim-less'
 # on_ft = ['less']
 
@@ -39,10 +35,6 @@ on_ft = ['html', 'css']
 # on_ft = ['javascript', 'jsx']
 
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-
-[[plugins]]
 repo = 'lumiliet/vim-twig'
 on_ft = ['php']
 
@@ -63,32 +55,21 @@ on_ft = ['vm']
 # if = '''! has('mac')'''
 # on_ft = ['swift']
 
-#[[plugins]]
-#repo = 'scrooloose/syntastic'
-#on_ft = ['ruby', 'coffee', 'go', 'javascript']
-
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
-
-# [[plugins]]
-# repo = 'mhartington/nvim-typescript'
-# on_ft = ['typescript']
-# hook_add = '''
-#   let g:nvim_typescript#vue_support = 1
-# '''
 
 [[plugins]]
 repo = 'aklt/plantuml-syntax'
 on_ft = ['plantuml']
 
-[[plugins]]
-repo = 'mhartington/nvim-typescript'
-build = './install'
-on_ft = ['typescript']
-hook_add = '''
-  let g:nvim_typescript#vue_support = 1
-'''
+#[[plugins]]
+#repo = 'mhartington/nvim-typescript'
+#build = './install'
+#on_ft = ['typescript']
+#hook_add = '''
+#  let g:nvim_typescript#vue_support = 1
+#'''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -109,3 +90,11 @@ on_ft = ['plantuml']
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
 on_ft = ['Dockerfile', 'docker-compose']
+
+[[plugins]]
+repo = 'mattn/vim-goimports'
+on_ft = ['go']
+hook_add = '''
+  " enable auto format when write (detaul)
+  let g:goimports = 1
+'''

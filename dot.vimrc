@@ -3,6 +3,8 @@ let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+let g:ruby_host_prog = '/usr/local/opt/rbenv/shims/neovim-ruby-host'
+
 if &compatible
   set nocompatible " Be iMproved
 endif
