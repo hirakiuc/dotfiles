@@ -1,6 +1,6 @@
 [user]
 	name = hirakiuc
-	email = hirakiuc@mercari.com
+	email = hirakiuc@gmail.com
 [color]
 	ui = true
 [tig "bind"]
@@ -46,4 +46,6 @@
 [branch]
   autosetuprebase = always
 [pull]
-	ff = only
+  ff = only
+[commit]
+  template = /Users/hirakiuc/.git-templates/emoji_commit_template

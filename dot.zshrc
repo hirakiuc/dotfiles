@@ -58,6 +58,12 @@ do
   source $file
 done
 
+# rust
+if [ -f $HOME/.cargo/env ]
+then
+  source $HOME/.cargo/env
+fi
+
 bindkey -e
 bindkey "^P" up-line-or-history
 bindkey "^N" down-line-or-history
@@ -79,11 +85,11 @@ alias rakobjc="rak --type=objc"
 alias zsh="/usr/local/bin/zsh"
 alias be="bundle exec"
 alias memcached="/usr/local/opt/memcached/bin/memcached"
-# alias mux=$(rbenv which tmuxinator)
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
+# google-cloud-sdk
 if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then
   . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
@@ -92,4 +98,17 @@ if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/comp
 fi
 
 # gh
-eval "$(gh completion -s zsh)"
+[ -f /usr/local/bin/gh ] && eval "$(gh completion -s zsh)"
+
+# gqg-agent
+if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
+  source ~/.gnupg/.gpg-agent-info
+  export GPG_AGENT_INFO
+  GPG_TTY=$(tty)
+  export GPG_TTY
+else
+  eval $(gpg-agent --daemon)
+fi
+
+# gvm
+[[ -s "${HOME}/.gvm/scripts/gvm" ]] && source "${HOME}/.gvm/scripts/gvm"
