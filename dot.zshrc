@@ -62,11 +62,6 @@ bindkey -e
 bindkey "^P" up-line-or-history
 bindkey "^N" down-line-or-history
 
-if [ -f $HOME/.rvm/scripts/rvm ]
-then
-  source $HOME/.rvm/scripts/rvm
-fi
-
 if [ -f /usr/local/share/zsh/site-functions/_aws ]
 then
   source /usr/local/share/zsh/site-functions/_aws
