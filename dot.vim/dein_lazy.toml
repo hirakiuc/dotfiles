@@ -93,4 +93,5 @@ on_ft = ['go']
 hook_add = '''
   " enable auto format when write (detaul)
   let g:goimports = 1
+  let g:goimports_simplify_cmd = "gofumpt"
 '''
