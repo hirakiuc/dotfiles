@@ -4,7 +4,6 @@ antigen use oh-my-zsh
 
 # Bundles from the detault repo
 antigen bundle git
-antigen bundle autojump
 antigen bundle heroku
 antigen bundle bundler
 antigen bundle git-flow
