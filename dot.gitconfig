@@ -1,6 +1,7 @@
 [user]
 	name = hirakiuc
 	email = hirakiuc@gmail.com
+	signingkey = 0C5E04DCF418FDDC
 [color]
 	ui = true
 [tig "bind"]
@@ -49,3 +50,6 @@
   ff = only
 [commit]
   template = /Users/hirakiuc/.git-templates/emoji_commit_template
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
