@@ -19,7 +19,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export JLESSCHARSET=japanese-utf8
-export EDITOR=/usr/local/bin/vim
+export EDITOR=$(brew --prefix)/bin/vim
 
 # To fix the error messages from vim on launching time
 export LC_ALL=en_US.UTF-8
@@ -79,10 +79,10 @@ then
 fi
 
 alias ls="ls -FG"
-alias vim="/usr/local/bin/nvim"
-alias vvim="/usr/local/bin/vim"
+alias vim="$(brew --prefix)/bin/nvim"
+alias vvim="$(brew --prefix)/bin/vim"
 alias rakobjc="rak --type=objc"
-alias zsh="/usr/local/bin/zsh"
+alias zsh="$(brew --prefix)/bin/zsh"
 alias be="bundle exec"
 alias memcached="/usr/local/opt/memcached/bin/memcached"
 
@@ -98,7 +98,7 @@ if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/comp
 fi
 
 # gh
-[ -f /usr/local/bin/gh ] && eval "$(gh completion -s zsh)"
+[ -f $(brew --prefix)/bin/gh ] && eval "$(gh completion -s zsh)"
 
 # gqg-agent
 if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
