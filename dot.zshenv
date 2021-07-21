@@ -1,13 +1,16 @@
-export PATH=/usr/local/bin:$PATH:$HOME/.bin
-export PATH=$PATH:$(brew --prefix git)/share/git-core/contrib/diff-highlight
+export GOPATH=$HOME/repos
 
-# for mercari-mini3
-export PATH=/usr/local/opt/python/libexec/bin:$PATH
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin(N-/)
+  /usr/local/bin(N-/)
+  $HOME/.bin(N-/)
+  $path
+  /opt/homebrew/opt/git/share/git-core/contrib/diff-highlight
+  $GOPATH/bin(N-/)
+)
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-
-export GOPATH=$HOME/repos
-export PATH=$PATH:$GOPATH/bin
 
 export XDG_CONFIG_HOME=$HOME/.config
 
