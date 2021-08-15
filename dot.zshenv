@@ -15,4 +15,4 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export XDG_CONFIG_HOME=$HOME/.config
 
 # For kubectl in gcloud
-export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+export PATH=$PATH:$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
