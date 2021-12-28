@@ -10,7 +10,7 @@
 [tag]
   sort=version:refname
 [core]
-	editor = /usr/local/bin/vim
+	editor = /opt/homebrew/bin/nvim
   excludesfile = ~/.gitignore_global
 [merge]
 	ff = false
@@ -38,6 +38,7 @@
   branch = cat
 [init]
 	templatedir = ~/.git-templates/git-secrets
+	defaultBranch = main
 [ghq]
 	root = ~/repos/src
 [diff]

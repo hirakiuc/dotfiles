@@ -1,6 +1,12 @@
 dot.vim/cache
 dot.vim/init.vim
 
+# Ignore 'zsh word code' files.
+*.zwc
+
+# This need to be installed by git-secrets
+dot.git-templates/git-secrets
+
 # Created by https://www.gitignore.io/api/vim
 
 # office specific file.
