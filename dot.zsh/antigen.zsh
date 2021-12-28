@@ -11,6 +11,7 @@ antigen bundle rbenv
 antigen bundle zsh-users/zsh-completions src
 antigen bundle jocelynmallon/zshmarks
 antigen bundle greymd/docker-zsh-completion
+antigen bundle gpg-agent
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
