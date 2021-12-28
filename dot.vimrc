@@ -61,8 +61,6 @@ endif
 if has('nvim')
   set ttimeout
   set ttimeoutlen=50
-
-  let g:float_preview#docked = 1
 endif
 
 " for us keyboard

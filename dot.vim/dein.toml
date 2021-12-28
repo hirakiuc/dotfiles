@@ -77,7 +77,10 @@ repo = 'itchyny/lightline.vim'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
+
+[[plugins]]
+repo = 'rhysd/vim-lsp-ale'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
@@ -89,3 +92,9 @@ if = '''has('vim')'''
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'sbdchd/neoformat'
+hook_post_source = '''
+  let g:float_preview#docked = 1
+'''
