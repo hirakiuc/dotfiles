@@ -59,7 +59,7 @@ class Setup
   def run
     @linker = SymbolicLinker.new(logger)
 
-    @finder.find self.src_dir do |target|
+    @finder.find self.src_dir.to_s do |target|
       process(target)
     end
   end

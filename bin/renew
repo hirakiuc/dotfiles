@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # vim:set ft=ruby
 
-require_relative 'lib/setup.rb'
+require_relative '../lib/setup.rb'
 
 s = Setup.configure do |v|
   v.debug = false

@@ -6,11 +6,11 @@ class TargetFile
   attr_reader :path
 
   def initialize(path)
-    @path = Pathname.new(path).realpath
+    @path = Pathname.new(path).expand_path
   end
 
   def relative_from(path)
-    p = Pathname.new(path).realpath
+    p = Pathname.new(path).expand_path
 
     @path.relative_path_from(p)
   end
