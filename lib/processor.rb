@@ -1,13 +1,13 @@
 require 'fileutils'
 
-class SymbolicLinker
+class Processor
   attr_accessor :logger
 
   def initialize(logger)
     @logger = logger
   end
 
-  def make_link(src, dst)
+  def process(src, dst)
     ensure_directory dst.parent
 
     if dst.exist?
@@ -18,11 +18,11 @@ class SymbolicLinker
       end
 
       dst.unlink
-      logger.info "Removed #{dst}."
+      logger.debug "Removed #{dst}."
     end
 
     dst.make_symlink(src)
-    @logger.info "Create a symlink #{src} to #{dst}."
+    @logger.debug "Create a symlink #{src} to #{dst}."
   rescue => e
     @logger.error("failed to make a symbolic link:#{e}")
   end

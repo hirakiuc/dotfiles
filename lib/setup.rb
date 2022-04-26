@@ -2,7 +2,7 @@ require 'forwardable'
 require 'logger'
 
 require_relative './finder.rb'
-require_relative './linker.rb'
+require_relative './processor.rb'
 
 class Options
   attr_accessor :src_dir, :dst_dir, :debug
@@ -27,7 +27,7 @@ class Options
 end
 
 class Setup
-  attr_reader :options, :logger, :finder, :linker
+  attr_reader :options, :logger, :finder, :processor
 
   extend Forwardable
   def_delegators :@options, \
@@ -57,7 +57,7 @@ class Setup
   end
 
   def run
-    @linker = SymbolicLinker.new(logger)
+    @processor = Processor.new(logger)
 
     @finder.find self.src_dir.to_s do |target|
       process(target)
@@ -72,7 +72,7 @@ class Setup
 
     logger.info "#{target} to #{link_path}"
 
-    @linker.make_link(target.path, link_path)
+    @processor.process(target.path, link_path)
   end
 
   def logger
