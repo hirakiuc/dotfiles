@@ -11,8 +11,8 @@ class Filter
     @rules = []
   end
 
-  def add_rule(rule)
-    @rules << rule
+  def set_rules(rules)
+    @rules = rules
   end
 
   def match?(path)
@@ -39,8 +39,8 @@ class Finder
     @filter = Filter.new
   end
 
-  def add_ignore_rule(rule)
-    @filter.add_rule(rule)
+  def ignore_patterns(ignores)
+    @filter.set_rules(ignores)
   end
   
   def find(path)
