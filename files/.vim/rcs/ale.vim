@@ -1,6 +1,7 @@
 let g:ale_linters = {
       \ 'javascript' : ['eslint'],
-      \ 'go': ['gofmt', 'golangci-lint']
+      \ 'go': ['gofmt', 'golangci-lint'],
+      \ 'typescript' : ['deno']
       \}
 
 let g:ale_fixers = ['prettier', 'eslint']
@@ -12,6 +13,8 @@ let g:ale_go_golangci_lint_package = 1
 
 " keep the sign gutter open at all times
 let g:ale_sign_column_always = 1
+
+let g:ale_deno_executable = '/opt/homebrew/bin/deno'
 
 " show errors on status line.
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']

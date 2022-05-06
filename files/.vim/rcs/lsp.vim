@@ -42,6 +42,9 @@ let g:lsp_settings['gopls'] = {
   \  },
   \}
 
+let g:markdown_fenced_languages = ['ts=typescript']
+let g:lsp_settings_filetype_typescript = ['deno']
+
 " For snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
