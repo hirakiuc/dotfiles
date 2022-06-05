@@ -45,6 +45,22 @@ let g:lsp_settings['gopls'] = {
 let g:markdown_fenced_languages = ['ts=typescript']
 let g:lsp_settings_filetype_typescript = ['deno']
 
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'Rust Language Server',
+      \ 'cmd': { server_info->['rust-analyzer'] },
+      \ 'whitelist': ['rust'],
+      \ 'initialization_options': {
+      \   'cargo': {
+      \     'loadOutDirsFromCheck': v:true,
+      \   },
+      \   'procMacro': {
+      \     'enable': v:true,
+      \   },
+      \ },
+      \ })
+endif
+
 " For snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
