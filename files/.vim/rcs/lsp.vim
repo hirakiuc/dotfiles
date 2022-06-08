@@ -57,6 +57,9 @@ if executable('rust-analyzer')
       \   'procMacro': {
       \     'enable': v:true,
       \   },
+      \   'hover': {
+      \     'enable': v:false,
+      \   },
       \ },
       \ })
 endif
