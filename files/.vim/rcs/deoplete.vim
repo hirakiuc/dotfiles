@@ -18,12 +18,6 @@ if has('nvim')
     \ neosnippet#expandable_or_jumpable() ?
     \   "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
-  " for LanguageClient-neovim
-  set hidden
-  let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls'],
-    \ }
-
   " not stop completion
   setlocal iskeyword+=$
   setlocal iskeyword+=-
