@@ -95,6 +95,3 @@ repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'sbdchd/neoformat'
-hook_post_source = '''
-  let g:float_preview#docked = 1
-'''
