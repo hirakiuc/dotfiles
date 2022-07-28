@@ -53,7 +53,7 @@ export NVM_DIR=$HOME/.nvm
 source $HOME/.zsh/antigen.zsh
 
 # Load custom codes.
-for file in `ls $HOME/.zsh/functions/*.zsh`
+for file in `find $HOME/.zsh/functions/*.zsh -type lf`
 do
   source $file
 done
