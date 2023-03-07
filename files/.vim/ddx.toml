@@ -1,0 +1,58 @@
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+on_event = 'InsertEnter'
+depends = ['denops.vim']
+hook_source = '''
+  " UI
+  call ddc#custom#patch_global('ui', 'native')
+
+  " Sources
+  call ddc#custom#patch_global(
+    \ 'sources', ['around']
+  \ )
+
+  call ddc#custom#patch_global('sourceOptions', #{
+    \ _: #{
+    \   matchers: ['matcher_head'],
+    \   sorters: ['sorter_rank'],
+    \ },
+    \ around: #{
+    \   mark: 'around'
+    \ },
+  \ })
+  call ddc#custom#patch_global('sourceParams', #{
+    \ around: #{
+    \   maxSize: 500
+    \ },
+  \ })
+
+  " Mappings
+  inoremap <silent><expr> <TAB>
+    \ pumvisible() ? '<C-n>' :
+    \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+    \ '<TAB>' : ddc#map#manual_complete()
+
+  inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<C-h>'
+
+  call ddc#enable()
+'''
+
+# UI
+[[plugins]]
+repo = 'Shougo/ddc-ui-native'
+on_source = 'ddc.vim'
+
+# Sources
+[[plugins]]
+repo = 'Shougo/ddc-source-around'
+on_source = 'ddc.vim'
+
+# Filters
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
