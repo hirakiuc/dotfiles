@@ -23,9 +23,11 @@ if dein#load_state(s:dein_dir)
   let s:rc_dir    = expand('~/.vim/')
   let s:toml      = s:rc_dir . 'dein.toml'
   let s:toml_lazy = s:rc_dir . 'dein_lazy.toml'
+  let s:toml_ddx  = s:rc_dir . 'ddx.toml'
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:toml_lazy, {'lazy': 1})
+  call dein#load_toml(s:toml_ddx,  {'lazy': 0})
 
   " Required:
   call dein#end()
