@@ -1,8 +1,8 @@
 require 'logger'
 
-require_relative './finder.rb'
-require_relative './options.rb'
-require_relative './processor.rb'
+require_relative './finder'
+require_relative './options'
+require_relative './processor'
 
 class Setup
   attr_reader :options, :logger, :finder, :processor
@@ -13,7 +13,7 @@ class Setup
     if block_given?
       yield s.options
     else
-      throw new Exception("require block")
+      raise 'require block'
     end
 
     s

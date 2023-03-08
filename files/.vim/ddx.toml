@@ -8,16 +8,28 @@ hook_source = '''
 
   " Sources
   call ddc#custom#patch_global(
-    \ 'sources', ['around']
+    \ 'sources', ['around', 'file', 'vim-lsp']
   \ )
 
   call ddc#custom#patch_global('sourceOptions', #{
     \ _: #{
+    \   ignoreCase: v:true,
     \   matchers: ['matcher_head'],
     \   sorters: ['sorter_rank'],
     \ },
     \ around: #{
     \   mark: 'around'
+    \ },
+    \ file: #{
+    \   mark: 'F',
+    \   isVolatile: v:true,
+    \   forceCompletionPattern: '\S/\S*',
+    \ },
+    \ vim-lsp: #{
+    \   mark: 'lsp',
+    \   matchers: ['matcher_head'],
+    \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
+    \   minAutoCompleteLength: 1,
     \ },
   \ })
   call ddc#custom#patch_global('sourceParams', #{
@@ -45,6 +57,14 @@ on_source = 'ddc.vim'
 # Sources
 [[plugins]]
 repo = 'Shougo/ddc-source-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-source-file'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'shun/ddc-source-vim-lsp'
 on_source = 'ddc.vim'
 
 # Filters
