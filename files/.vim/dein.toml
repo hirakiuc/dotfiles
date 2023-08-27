@@ -1,4 +1,7 @@
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]

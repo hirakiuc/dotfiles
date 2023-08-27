@@ -26,10 +26,10 @@ hook_source = '''
     \   forceCompletionPattern: '\S/\S*',
     \ },
     \ vim-lsp: #{
-    \   mark: 'lsp',
+    \   mark: 'LSP',
     \   matchers: ['matcher_head'],
-    \   forceCompletionPattern: '\.\w*|:\w*|->\w*',
-    \   minAutoCompleteLength: 1,
+    \   forceCompletionPattern: '\.|:|->|''|"',
+    \   minAutoCompleteLength: 2,
     \ },
   \ })
   call ddc#custom#patch_global('sourceParams', #{
@@ -38,15 +38,17 @@ hook_source = '''
     \ },
   \ })
 
+  call ddc#enable()
+
   " Mappings
   inoremap <silent><expr> <TAB>
     \ pumvisible() ? '<C-n>' :
     \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
     \ '<TAB>' : ddc#map#manual_complete()
 
-  inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<C-h>'
-
-  call ddc#enable()
+  " inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<C-h>'
+  inoremap <silent><expr> <C-j> ((pumvisible()) ? '<C-n>' : '<C-j>')
+  inoremap <silent><expr> <C-k> ((pumvisible()) ? '<C-p>' : '<C-k>')
 '''
 
 # UI
