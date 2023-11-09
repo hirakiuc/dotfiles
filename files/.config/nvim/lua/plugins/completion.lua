@@ -59,6 +59,9 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
+    dependencies = {
+      'mihyaeru21/nvim-lspconfig-bundler',
+    },
     config = function()
       local lspconfig = require('mason-lspconfig')
       lspconfig.setup({
@@ -68,12 +71,17 @@ return {
           "gopls",
           "jsonls",
           "lua_ls",
+          "solargraph",
+          "ruby_ls",
           "svelte",
           "taplo",
           "yamlls",
         },
         automatic_installation = true,
       })
+
+      -- For ruby dev. (Use bundled gem, instead of installed by this plugin)
+      require('lspconfig-bundler').setup()
 
       capabilities = require('cmp_nvim_lsp').default_capabilities()
 

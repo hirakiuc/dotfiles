@@ -6,7 +6,11 @@ return {
         javascript = {'eslint'},
         go = { 'gofmt', 'golangci-lint' },
         typescriptreact = { 'eslint' },
+        ruby = { 'ruby', 'rubocop' },
       }
+
+      -- Disable linters, except for explicitly configured linters.
+      vim.g.ale_linters_explicit = 1
 
       -- Enable that the whole go package will be checked instead of only the currnet file
       vim.g.ale_go_golangci_lint_package = 1
@@ -24,6 +28,9 @@ return {
         'remove_trailing_lines',
         'trim_whitespace',
       }
+
+      -- Invoke rubocop with 'bundle exec'
+      vim.g.ale_ruby_rubocop_executable = 'bundle'
     end,
   },
 }
