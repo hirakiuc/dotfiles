@@ -2,9 +2,14 @@
 return {
   -- colorschema
   {
-    'nanotech/jellybeans.vim',
+    'rmehri01/onenord.nvim',
     config = function()
-      vim.cmd([[colorscheme jellybeans]])
+      require('onenord').setup({
+        theme = nil,
+        disable = {
+          background = true, -- disable setting the background color
+        }
+      })
     end
   },
   {
