@@ -50,6 +50,7 @@ return {
           "luap",
           "markdown",
           "markdown_inline",
+          "mermaid",
           "dockerfile",
           "diff",
           "gitignore",
