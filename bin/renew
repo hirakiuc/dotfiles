@@ -6,6 +6,7 @@ require_relative '../lib/setup.rb'
 s = Setup.configure do |v|
   v.debug = false
   v.src_dir = "./files"
+  v.force = false
 
   v.ignore(/.*\/cache($|\/)/)
   v.ignore(/.\.zwc$/)

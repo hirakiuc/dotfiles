@@ -1,11 +1,12 @@
 class Options
-  attr_accessor :src_dir, :dst_dir, :debug, :ignores
+  attr_accessor :src_dir, :dst_dir, :debug, :ignores, :force
 
   def initialize
     @debug = false
     @src_dir = Options::abspath('./files')
     @dst_dir = Options::abspath(ENV['HOME'])
     @ignores = []
+    @force = false
   end
 
   def src_dir=(path)

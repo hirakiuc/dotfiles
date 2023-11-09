@@ -1,10 +1,11 @@
 require 'fileutils'
 
 class Processor
-  attr_accessor :logger
+  attr_accessor :logger, :force
 
-  def initialize(logger)
+  def initialize(logger, options)
     @logger = logger
+    @force = options[:force] || false
   end
 
   def process(src, dst)
@@ -14,6 +15,11 @@ class Processor
       if dst.directory?
         @logger.error "Skip updating a symlink to #{dst}."
         @logger.error "  => #{dst} is not a file..."
+        return
+      end
+
+      unless @force
+        @logger.info "Skip updating the existing file: '#{dst}'"
         return
       end
 

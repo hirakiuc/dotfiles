@@ -25,7 +25,9 @@ class Setup
   end
 
   def run
-    @processor = Processor.new(logger)
+    opts = { force: @options.force }
+    @processor = Processor.new(logger, opts)
+
     @finder.ignore_patterns(@options.ignores)
 
     @finder.find @options.src_dir.to_s do |target|
