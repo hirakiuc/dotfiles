@@ -47,15 +47,6 @@ return {
     'neovim/nvim-lspconfig',
     cmd = { "LspInfo", "LspLog" },
     event = { "BufRead" },
-    config = function()
-      require('lspconfig').lua_ls.setup({
-        Lua = {
-          diagnostics = {
-            globals = {'vim'},
-          },
-        },
-      })
-    end
   },
   {
     'williamboman/mason-lspconfig.nvim',
@@ -63,8 +54,8 @@ return {
       'mihyaeru21/nvim-lspconfig-bundler',
     },
     config = function()
-      local lspconfig = require('mason-lspconfig')
-      lspconfig.setup({
+      local masonLspConfig = require('mason-lspconfig')
+      masonLspConfig.setup({
         ensure_installed = {
           "cmake",
           "tsserver",
@@ -83,15 +74,41 @@ return {
       -- For ruby dev. (Use bundled gem, instead of installed by this plugin)
       require('lspconfig-bundler').setup()
 
-      capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      lspconfig.setup_handlers({
+      masonLspConfig.setup_handlers({
         function(server_name)
           local config = require('lspconfig')
           config[server_name].setup({
             capabilities = capabilities
           })
         end
+      })
+
+      local lspconfig = require('lspconfig')
+
+      lspconfig.lua_ls.setup({
+        Lua = {
+          diagnostics = {
+            globals = {
+              'vim',
+            },
+          },
+        },
+      })
+
+      lspconfig.yamlls.setup({
+        settings = {
+          yaml = {
+            customTags = {
+              -- Setup for the CloudFormation templates
+              '!Ref scalar',
+              '!fn',
+              '!Sub',
+              '!GetAtt',
+            },
+          },
+        },
       })
     end
   },
