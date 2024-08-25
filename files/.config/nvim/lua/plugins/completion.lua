@@ -1,3 +1,4 @@
+--[[
 return {
   {
     'hrsh7th/nvim-cmp',
@@ -125,3 +126,4 @@ return {
     build = 'make install_jsregexp',
   }
 }
+]]--
