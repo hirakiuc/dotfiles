@@ -15,6 +15,7 @@ return {
       'Shougo/ddu-kind-file',
       -- source plugins
       'Shougo/ddu-source-file_rec',
+      'shun/ddu-source-buffer',
     },
     config = function()
       -- Ref: https://zenn.dev/vim_jp/articles/20231020step-by-step-ddu
@@ -44,6 +45,11 @@ return {
             ignoreCase = true,
           },
         },
+        kindOptions = {
+          file = {
+            defaultAction = "open",
+          },
+        },
       })
 
       vim.fn["ddu#custom#patch_local"]("file_rec", {
@@ -65,9 +71,12 @@ return {
             },
           },
         },
-        kindOptions = {
-          file = {
-            defaultAction = "open",
+      })
+
+      vim.fn["ddu#custom#patch_local"]("buffer", {
+        sources = {
+          {
+            name = { "buffer" },
           },
         },
       })
@@ -78,6 +87,7 @@ return {
           local opts = { noremap = true, silent = true, buffer = true }
           vim.keymap.set({ "n" },    "q", [[<Cmd>call ddu#ui#do_action("quit")<CR>]], opts)
           vim.keymap.set({ "n" }, "<CR>", [[<Cmd>call ddu#ui#do_action("itemAction")<CR>]], opts)
+          vim.keymap.set({ "n" },    "d", [[<Cmd>call ddu#ui#do_action("itemAction", #{name: "delete"})<CR>]], opts)
           vim.keymap.set({ "n" }, "<Space>", [[<Cmd>call ddu#ui#do_action("toggleSelectItem")<CR>]], opts)
           vim.keymap.set({ "n" },    "i", [[<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>]], opts)
           vim.keymap.set({ "n" },    "p", [[<Cmd>call ddu#ui#do_action("togglePreview")<CR>]], opts)
@@ -100,6 +110,7 @@ return {
 
       -- nnoremap <silent> [ddu]f :call ddu#start(#{name: "file_rec"})<CR>
       vim.keymap.set('n', '[ddu]f', [[:call ddu#start(#{name: "file_rec"})<CR>]])
+      vim.keymap.set('n', '[ddu]b', [[:call ddu#start(#{name: "buffer"})<CR>]])
     end,
   },
 }
