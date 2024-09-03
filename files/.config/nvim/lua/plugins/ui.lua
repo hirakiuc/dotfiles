@@ -1,6 +1,12 @@
 -- core plugins
 return {
   -- colorschema
+--  {
+--    'nanotech/jellybeans.vim',
+--    config = function()
+--      vim.cmd([[colorscheme jellybeans]])
+--    end
+--  },
   {
     'rmehri01/onenord.nvim',
     config = function()
@@ -19,6 +25,7 @@ return {
       require('lualine').setup()
     end
   },
+  --[[
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.2',
@@ -63,4 +70,5 @@ return {
       telescope.load_extension('fzf')
     end
   },
+  ]]--
 }
