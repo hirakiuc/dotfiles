@@ -58,6 +58,17 @@ return {
         },
       })
 
+      -- Key Mappings
+      -- <TAB>, S-<TAB>
+      vim.api.nvim_exec2([[
+        inoremap <expr> <TAB>
+        \ pumvisible() ? '<C-n>' :
+        \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+        \ '<TAB>' : ddc#map#manual_complete()
+
+        inoremap <expr> <S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+      ]], { output = false })
+
       local ddc_previewer_floating = require('ddc_previewer_floating')
       ddc_previewer_floating.setup({
         ui = 'native',
@@ -115,10 +126,12 @@ return {
       local lspconfig = require('lspconfig')
 
       lspconfig.lua_ls.setup({
-        Lua = {
-          diagnostics = {
-            globals = {
-              'vim',
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {
+                'vim',
+              },
             },
           },
         },
