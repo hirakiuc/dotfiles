@@ -14,7 +14,7 @@ return {
       -- kind plugins
       'Shougo/ddu-kind-file',
       -- source plugins
-      'Shougo/ddu-source-file_rec',
+      'matsui54/ddu-source-file_external',
       'shun/ddu-source-buffer',
       'shun/ddu-source-rg',
     },
@@ -39,6 +39,9 @@ return {
           _ = {
             matchers = {
               'matcher_substring',
+            },
+            converters = {
+              'converter_devicon',
             },
             ignoreCase = true,
           },
@@ -67,6 +70,32 @@ return {
                 ".vscode",
               },
             },
+          },
+        },
+      })
+
+      vim.fn["ddu#custom#patch_local"]("file", {
+        sources = {
+          {
+            name = { "file_external" },
+          },
+        },
+        sourceParams = {
+          file_external = {
+            cmd = { 'fd', '.', '-H', '-t', 'f' },
+          },
+        },
+      })
+
+      vim.fn["ddu#custom#patch_local"]("directory", {
+        sources = {
+          {
+            name = { "file_external" },
+          },
+        },
+        sourceParams = {
+          file_external = {
+            cmd = { 'fd', '.', '-H', '-t', 'd' },
           },
         },
       })
@@ -120,57 +149,45 @@ return {
       -- nmap ` [ddu]
       vim.keymap.set('n', '`', '[ddu]', {remap = true})
 
-      -- nnoremap <silent> [ddu]f :call ddu#start(#{name: "file_rec"})<CR>
-      -- vim.keymap.set('n', '[ddu]f', [[:call ddu#start(#{name: "file_rec"})<CR>]])
-      vim.keymap.set('n', '[ddu]f', function()
-        vim.fn["ddu#start"]({ name = "file_rec" })
-        -- Start ddu with filtering
-        -- https://github.com/Shougo/ddu-ui-ff/blob/7bcf85fc79ca180ea86958244f0161763a80564f/doc/ddu-ui-ff.txt#L1125-L1134
-        vim.api.nvim_exec2([[
-          augroup ddu_filter
-            autocmd!
-            autocmd User Ddu:uiDone ++once ++nested call ddu#ui#async_action('openFilterWindow')
-          augroup END
-        ]], { output = false })
-      end)
-      vim.keymap.set('n', '[ddu]b', [[:call ddu#start(#{name: "buffer"})<CR>]])
+      local function DduStartWithFilter(options)
+        return function()
+          vim.fn["ddu#start"](options)
 
-      -- https://github.com/shun/ddu-source-rg/blob/main/doc/ddu-source-rg.txt#L45-L46
-      vim.keymap.set('n', '[ddu]g', [[:call ddu#start(#{sources: [#{name: 'rg', params: #{input: 'Pattern:'->input() }}]})<CR>]])
+          -- Start ddu with filtering
+          -- https://github.com/Shougo/ddu-ui-ff/blob/7bcf85fc79ca180ea86958244f0161763a80564f/doc/ddu-ui-ff.txt#L1125-L1134
+          vim.api.nvim_exec2([[
+            augroup ddu_filter
+              autocmd!
+              autocmd User Ddu:uiDone ++once ++nested call ddu#ui#async_action('openFilterWindow')
+            augroup END
+          ]], { output = false })
+        end
+      end
+      -- nnoremap <silent> [ddu]f :call ddu#start(#{name: "file_rec"})<CR>
+      vim.keymap.set('n', '[ddu]f', DduStartWithFilter({ name = "file" }))
+      vim.keymap.set('n', '[ddu]d', DduStartWithFilter({ name = "directory" }))
+      vim.keymap.set('n', '[ddu]b', DduStartWithFilter({ name = "buffer" }))
 
       -- live grep
       -- https://github.com/shun/ddu-source-rg/blob/main/doc/ddu-source-rg.txt#L56
       -- command! DduRgLive call <SID>ddu_rg_live()
-      vim.api.nvim_create_user_command('DduRgLive', function()
-        vim.fn["ddu#start"]({
-          sources = {
-            {
-              name = 'rg',
-              options = {
-                matchers = {},
-                volatile = true,
-              },
+      vim.keymap.set('n', '[ddu]g', DduStartWithFilter({
+        sources = {
+          {
+            name = 'rg',
+            options = {
+              matchers = {},
+              volatile = true,
             },
           },
-          uiParams = {
-            ff = {
-              ignoreEmpty = false,
-              autoResize = false,
-            },
+        },
+        uiParams = {
+          ff = {
+            ignoreEmpty = false,
+            autoResize = false,
           },
-        })
-
-        -- Start ddu with filtering
-        -- https://github.com/Shougo/ddu-ui-ff/blob/7bcf85fc79ca180ea86958244f0161763a80564f/doc/ddu-ui-ff.txt#L1125-L1134
-        vim.api.nvim_exec2([[
-          augroup ddu_filter
-            autocmd!
-            autocmd User Ddu:uiDone ++once ++nested call ddu#ui#async_action('openFilterWindow')
-          augroup END
-        ]], { output = false })
-      end, { bang = true })
-
-      vim.keymap.set('n', '[ddu]l', [[:DduRgLive<CR>]])
+        },
+      }))
     end,
   },
 }
