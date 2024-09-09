@@ -25,7 +25,7 @@ config.keys = {
   { key = 'x', mods = 'LEADER', action = wezterm.action.CloseCurrentPane { confirm = true } },
   { key = 'n', mods = 'LEADER', action = wezterm.action.SpawnWindow },
 
-  { key = 'p', mods = 'CTRL', action = wezterm.action.ActivateCommandPalette },
+  { key = 'P', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateCommandPalette },
 
   { key = 'h', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Left' },
   { key = 'l', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Right' },
