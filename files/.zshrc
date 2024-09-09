@@ -31,7 +31,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt hist_ignore_all_dups # delete duplicated command from older one.
 setopt hist_ignore_dups     # don't append history if it's same with the previous one.
-setopt share_history        # Share the command history 
+setopt share_history        # Share the command history
 setopt append_history       # Just add history (not create new history file)
 setopt inc_append_history   # Add history incrementaly
 setopt hist_no_store        # don't append history command
