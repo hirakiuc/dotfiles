@@ -35,6 +35,7 @@ config.keys = {
   { key = '-', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = '|', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
 
+  { key = 'f', mods = 'LEADER', action = wezterm.action.ToggleFullScreen },
   { key = 'z', mods = 'LEADER', action = wezterm.action.TogglePaneZoomState },
 
   {
