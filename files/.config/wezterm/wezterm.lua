@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'Sonokai (Gogh)'
 config.font = wezterm.font 'SauceCodePro Nerd Font'
-config.font_size = 14.0
+config.font_size = 15.0
 
 config.window_background_opacity = 0.8
 
@@ -32,6 +32,9 @@ config.keys = {
   { key = 'j', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Down' },
   { key = 'k', mods = 'LEADER', action = wezterm.action.ActivatePaneDirection 'Up' },
 
+  { key = 'H', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(-1) },
+  { key = 'L', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(1) },
+
   { key = '-', mods = 'LEADER', action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = '|', mods = 'LEADER', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
 
@@ -43,6 +46,16 @@ config.keys = {
     mods = 'LEADER',
     action = wezterm.action.ActivateKeyTable {
       name = 'resize_pane',
+      one_shot = false,
+      timeout_milliseconds = 1000,
+    },
+  },
+
+  {
+    key = 't',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateKeyTable {
+      name = 'move_tab',
       one_shot = false,
       timeout_milliseconds = 1000,
     },
@@ -60,6 +73,11 @@ config.key_tables = {
     { key = 'k', action = wezterm.action.AdjustPaneSize { 'Up', 5 } },
 
     { key = 'Escape', action = 'PopKeyTable' },
+  },
+
+  move_tab = {
+    { key = 'h', action = wezterm.action.ActivateTabRelative(-1) },
+    { key = 'l', action = wezterm.action.ActivateTabRelative(1) },
   },
 
   -- https://github.com/wez/wezterm/issues/1592#issuecomment-1118722289
