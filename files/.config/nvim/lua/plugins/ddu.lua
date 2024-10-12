@@ -149,6 +149,12 @@ return {
       -- nmap ` [ddu]
       vim.keymap.set('n', '`', '[ddu]', {remap = true})
 
+      local function DduStart(options)
+        return function()
+          vim.fn["ddu#start"](options)
+        end
+      end
+
       local function DduStartWithFilter(options)
         return function()
           vim.fn["ddu#start"](options)
@@ -164,9 +170,14 @@ return {
         end
       end
       -- nnoremap <silent> [ddu]f :call ddu#start(#{name: "file_rec"})<CR>
-      vim.keymap.set('n', '[ddu]f', DduStartWithFilter({ name = "file" }))
-      vim.keymap.set('n', '[ddu]d', DduStartWithFilter({ name = "directory" }))
-      vim.keymap.set('n', '[ddu]b', DduStartWithFilter({ name = "buffer" }))
+      vim.keymap.set('n', '[ddu]f',  DduStartWithFilter({ name = "file" }))
+      vim.keymap.set('n', '[ddu]rf', DduStart({ name = "file", resume = true }))
+
+      vim.keymap.set('n', '[ddu]d',  DduStartWithFilter({ name = "directory" }))
+      vim.keymap.set('n', '[ddu]rd', DduStart({ name = "directory", resume = true }))
+
+      vim.keymap.set('n', '[ddu]b',  DduStartWithFilter({ name = "buffer" }))
+      vim.keymap.set('n', '[ddu]rb', DduStart({ name = "buffer", resume = true }))
 
       -- live grep
       -- https://github.com/shun/ddu-source-rg/blob/main/doc/ddu-source-rg.txt#L56
