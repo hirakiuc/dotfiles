@@ -12,6 +12,7 @@ antigen bundle zsh-users/zsh-completions src
 antigen bundle jocelynmallon/zshmarks
 antigen bundle greymd/docker-zsh-completion
 antigen bundle gpg-agent
+antigen bundle mroth/evalcache
 
 export NVM_LAZY_LOAD=true
 antigen bundle lukechilds/zsh-nvm

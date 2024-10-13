@@ -36,15 +36,6 @@ setopt inc_append_history   # Add history incrementaly
 setopt hist_no_store        # don't append history command
 setopt hist_reduce_blanks
 
-eval "$(direnv hook zsh)"
-
-# export RBENV_ROOT=$HOME/.rbenv/
-# export PATH=$PATH:$HOME/.rbenv/bin
-# Load rbenv automatically by appending
-# the following to ~/.zshrc:
-# eval "$(rbenv init - zsh)"
-# export PATH=$HOME/.rbenv/shims:$PATH
-
 # Enable antigen
 source $HOME/.zsh/antigen.zsh
 
@@ -64,34 +55,36 @@ bindkey -e
 bindkey "^P" up-line-or-history
 bindkey "^N" down-line-or-history
 
-if [ -f /usr/local/share/zsh/site-functions/_aws ]
-then
-  source /usr/local/share/zsh/site-functions/_aws
-fi
-
-if [ -f $HOME/.embulk/bin/embulk ]
-then
-  export PATH=$HOME/.embulk/bin:$PATH
-fi
-
 alias ls="ls -FG"
 alias vim="$(brew --prefix)/bin/nvim"
-alias vvim="$(brew --prefix)/bin/vim"
-alias rakobjc="rak --type=objc"
 alias zsh="$(brew --prefix)/bin/zsh"
 alias be="bundle exec"
-alias memcached="/usr/local/opt/memcached/bin/memcached"
-
-# added by travis gem
-[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # google-cloud-sdk
 if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]; then
   . $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 fi
 
-# gh
-[ -f $(brew --prefix)/bin/gh ] && eval "$(gh completion -s zsh)"
+# direnv
+if builtin command -v direnv > /dev/null; then
+  _evalcache direnv hook zsh
+fi
+#eval "$(direnv hook zsh)"
 
-# gvm
-[[ -s "${HOME}/.gvm/scripts/gvm" ]] && source "${HOME}/.gvm/scripts/gvm"
+# rbenv
+export RBENV_ROOT=$HOME/.rbenv/
+# export PATH=$PATH:$HOME/.rbenv/bin
+# Load rbenv automatically by appending
+# the following to ~/.zshrc:
+# eval "$(rbenv init - zsh)"
+export PATH=$HOME/.rbenv/shims:$PATH
+
+if builtin command -v rbenv > /dev/null; then
+  # cache the rbenv
+  _evalcache rbenv init - zsh
+fi
+
+# gh
+if builtin command -v gh > /dev/null; then
+  _evalcache gh completion -s zsh
+fi
