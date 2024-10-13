@@ -46,8 +46,7 @@ eval "$(direnv hook zsh)"
 # export PATH=$HOME/.rbenv/shims:$PATH
 
 # Enable antigen
-# source $HOME/.zsh/antigen.zsh
-source $(brew --prefix)/share/antigen/antigen.zsh
+source $HOME/.zsh/antigen.zsh
 
 # Load custom codes.
 for file in `find $HOME/.zsh/functions/*.zsh -type lf`
