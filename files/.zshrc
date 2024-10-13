@@ -46,12 +46,9 @@ eval "$(direnv hook zsh)"
 # eval "$(rbenv init - zsh)"
 # export PATH=$HOME/.rbenv/shims:$PATH
 
-# for nvm (https://github.com/creationix/nvm)
-export NVM_DIR=$HOME/.nvm
-[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && source "$(brew --prefix nvm)/nvm.sh"
-
 # Enable antigen
-source $HOME/.zsh/antigen.zsh
+# source $HOME/.zsh/antigen.zsh
+source $(brew --prefix)/share/antigen/antigen.zsh
 
 # Load custom codes.
 for file in `find $HOME/.zsh/functions/*.zsh -type lf`
