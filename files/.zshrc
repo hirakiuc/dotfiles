@@ -3,8 +3,7 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 fpath=($HOME/.zsh/completions $fpath)
 fpath=($(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc $fpath)
 
-autoload -U compinit
-compinit -u
+autoload -Uz compinit && compinit -i
 
 # http://qiita.com/items/ed2d36698a5cc314557d
 zstyle ':completion:*' verbose yes
