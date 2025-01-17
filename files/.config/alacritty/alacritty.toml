@@ -1,0 +1,29 @@
+[font]
+size = 15
+
+[font.normal]
+family = "SauceCodePro Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "SauceCodePro Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "SauceCodePro Nerd Font"
+style = "Italic"
+
+[general]
+live_config_reload = true
+
+[scrolling]
+history = 10000
+multiplier = 5
+
+[window]
+decorations = "full"
+opacity = 0.8
+
+[window.padding]
+x = 3
+y = 3
