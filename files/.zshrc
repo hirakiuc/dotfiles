@@ -88,3 +88,13 @@ fi
 if builtin command -v gh > /dev/null; then
   _evalcache gh completion -s zsh
 fi
+
+# helm
+if builtin command -v helm > /dev/null; then
+  _evalcache helm completion zsh
+fi
+
+# ct
+if builtin command -v ct > /dev/null; then
+  _evalcache ct completion zsh
+fi
