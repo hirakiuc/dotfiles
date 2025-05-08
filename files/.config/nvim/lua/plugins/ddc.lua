@@ -77,6 +77,11 @@ return {
         \ '<TAB>' : ddc#map#manual_complete()
 
         inoremap <expr> <S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
+        " Prefer using <CR>/C-j/C-k, instead of default keybinds
+        inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
+        inoremap <expr> <C-j> pumvisible() ? "<C-n>" : "<C-j>"
+        inoremap <expr> <C-k> pumvisible() ? "<C-p>" : "<C-k>"
       ]], { output = false })
 
       local ddc_previewer_floating = require('ddc_previewer_floating')
