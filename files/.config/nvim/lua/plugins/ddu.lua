@@ -82,7 +82,7 @@ return {
         },
         sourceParams = {
           file_external = {
-            cmd = { 'fd', '.', '-H', '-t', 'f' },
+            cmd = { 'fd', '.', '-H', '-E', '.git' ,'-t', 'f' },
           },
         },
       })
@@ -149,12 +149,6 @@ return {
       -- nmap ` [ddu]
       vim.keymap.set('n', '`', '[ddu]', {remap = true})
 
-      local function DduStart(options)
-        return function()
-          vim.fn["ddu#start"](options)
-        end
-      end
-
       local function DduStartWithFilter(options)
         return function()
           vim.fn["ddu#start"](options)
@@ -169,15 +163,24 @@ return {
           ]], { output = false })
         end
       end
+
+      local function DduStart(options)
+        return function()
+          vim.fn["ddu#start"](options)
+        end
+      end
+
       -- nnoremap <silent> [ddu]f :call ddu#start(#{name: "file_rec"})<CR>
-      vim.keymap.set('n', '[ddu]f',  DduStartWithFilter({ name = "file" }))
+      vim.keymap.set('n', '[ddu]f', DduStartWithFilter({ name = "file" }))
       vim.keymap.set('n', '[ddu]rf', DduStart({ name = "file", resume = true }))
 
-      vim.keymap.set('n', '[ddu]d',  DduStartWithFilter({ name = "directory" }))
+      vim.keymap.set('n', '[ddu]d', DduStartWithFilter({ name = "directory" }))
       vim.keymap.set('n', '[ddu]rd', DduStart({ name = "directory", resume = true }))
 
-      vim.keymap.set('n', '[ddu]b',  DduStartWithFilter({ name = "buffer" }))
+      vim.keymap.set('n', '[ddu]b', DduStartWithFilter({ name = "buffer" }))
       vim.keymap.set('n', '[ddu]rb', DduStart({ name = "buffer", resume = true }))
+
+      vim.keymap.set('n', '[ddu]ml',DduStart({ name = "memolist" }))
 
       -- live grep
       -- https://github.com/shun/ddu-source-rg/blob/main/doc/ddu-source-rg.txt#L56
