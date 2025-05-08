@@ -16,6 +16,8 @@ return {
       -- preview
       'uga-rosa/ddc-previewer-floating',
       'matsui54/denops-signature_help',
+      -- snippet
+      'hrsh7th/vim-vsnip',
     },
     config = function()
       -- for copilot
@@ -60,11 +62,7 @@ return {
           absolute = false,
         },
         lsp = {
-          --[[
-          snippetEngine = vim.fn["denops#callback"('register', function() {
-            body -> vsnip
-          }),
-          ]]--
+          snippetEngine = vim.fn["denops#callback#register"](function(body) vim.fn["vsnip#anonymous"](body) end),
           enableResolveItem = true,
           enableAdditionalTextEdit = true,
         },
@@ -100,44 +98,19 @@ return {
     event = { "BufRead" },
   },
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     dependencies = {
       'mihyaeru21/nvim-lspconfig-bundler',
     },
     config = function()
-      local masonLspConfig = require('mason-lspconfig')
-      masonLspConfig.setup({
-        ensure_installed = {
-          "cmake",
-          "tsserver",
-          "gopls",
-          "jsonls",
-          "lua_ls",
-          "solargraph",
-          "svelte",
-          "taplo",
-          "yamlls",
-        },
-        automatic_installation = true,
+      vim.lsp.config('*', {
+        capailities = require('ddc_source_lsp').make_client_capabilities(),
       })
 
       -- For ruby dev. (Use bundled gem, instead of installed by this plugin)
       require('lspconfig-bundler').setup()
 
-      local capabilities = require('ddc_source_lsp').make_client_capabilities()
-
-      masonLspConfig.setup_handlers({
-        function(server_name)
-          local config = require('lspconfig')
-          config[server_name].setup({
-            capabilities = capabilities
-          })
-        end
-      })
-
-      local lspconfig = require('lspconfig')
-
-      lspconfig.lua_ls.setup({
+      vim.lsp.config('lua_ls', {
         settings = {
           Lua = {
             diagnostics = {
@@ -149,7 +122,34 @@ return {
         },
       })
 
-      lspconfig.yamlls.setup({
+      vim.lsp.config('helm_ls', {
+        settings = {
+          ['helm_ls'] = {
+            logLevel = "info",
+            valuesFiles = {
+              mainValuesFile = "values.yaml",
+              lintOverlayValuesFile = "values.lint.yaml",
+              additionalValuesFilesGlobPattern = "values*.yaml"
+            },
+            yamlls = {
+              enable = true,
+              enabledForFilesGlob = "*.{yaml,yml}",
+              diagnosticsLimit = 50,
+              showDiagnosticsDirectory = false,
+              path = "yaml-language-server",
+              config = {
+                schemas = {
+                  kubernetes = "templates/**",
+                },
+                completion = true,
+                hover = true,
+              }
+            }
+          },
+        },
+      })
+
+      vim.lsp.config('yamlls', {
         settings = {
           yaml = {
             customTags = {
@@ -160,6 +160,21 @@ return {
               '!GetAtt',
             },
           },
+        },
+      })
+
+      require('mason').setup()
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          "cmake",
+          "gopls",
+          "helm_ls",
+          "jsonls",
+          "lua_ls",
+          "solargraph",
+          "taplo",
+          "yamlls",
+          "ts_ls",
         },
       })
     end
