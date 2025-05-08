@@ -41,6 +41,11 @@ return {
         indent = { enable = true },
         ensure_installed = {
           "bash",
+          "diff",
+          "dockerfile",
+          "gitignore",
+          "go",
+          "helm",
           "html",
           "javascript",
           "jsdoc",
@@ -51,19 +56,14 @@ return {
           "markdown",
           "markdown_inline",
           "mermaid",
-          "dockerfile",
-          "diff",
-          "gitignore",
-          "svelte",
+          "terraform",
           "tsx",
           "typescript",
           "vim",
           "vimdoc",
           "yaml",
-          "go",
         },
       })
     end
   },
-
 }
