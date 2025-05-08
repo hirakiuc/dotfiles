@@ -10,14 +10,20 @@ return {
       'Shougo/ddc-source-lsp',
       'Shougo/ddc-filter-matcher_head',
       'Shougo/ddc-filter-sorter_rank',
+      -- copilot
+      'github/copilot.vim',
+      'Shougo/ddc-source-copilot',
       -- preview
       'uga-rosa/ddc-previewer-floating',
       'matsui54/denops-signature_help',
     },
     config = function()
+      -- for copilot
+      vim.g.copilot_no_maps = true
+
       vim.fn["ddc#custom#patch_global"]('ui', 'native')
 
-      vim.fn["ddc#custom#patch_global"]('sources', {'around', 'file', 'lsp'})
+      vim.fn["ddc#custom#patch_global"]('sources', {'around', 'file', 'lsp', 'copilot'})
 
       vim.fn["ddc#custom#patch_global"]('sourceOptions', {
         _ = {
@@ -40,6 +46,12 @@ return {
           mark = 'LSP',
           forceCompletionPattern = '\\.\\w*|:\\w*|->\\w*',
         },
+        copilot = {
+          mark = 'copilot',
+          matchers = {},
+          minAutoCompleteLength = 0,
+          isVolatile = true,
+        }
       })
 
       vim.fn["ddc#custom#patch_global"]('sourceParams', {
