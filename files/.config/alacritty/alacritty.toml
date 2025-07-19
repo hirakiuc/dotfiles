@@ -1,5 +1,5 @@
 [terminal]
-shell = { program = "/opt/homebrew/bin/zsh" }
+shell = { program = "/opt/homebrew/bin/zsh", args = ["-i"] }
 
 [font]
 size = 13
