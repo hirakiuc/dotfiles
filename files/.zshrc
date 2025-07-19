@@ -98,3 +98,8 @@ fi
 if builtin command -v ct > /dev/null; then
   _evalcache ct completion zsh
 fi
+
+# fzf
+if builtin command -v fzf > /dev/null; then
+  source <(fzf --zsh)
+fi
